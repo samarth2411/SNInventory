@@ -1,9 +1,9 @@
-package io.dbc.github.sninventory;
+package io.dbc.github.sninventory.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class MainController {
     @FXML
     private Label welcomeText;
 
