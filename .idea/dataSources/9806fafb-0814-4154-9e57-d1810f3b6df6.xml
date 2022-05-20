@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Apache Derby (Embedded) - sn_inventory">
+  <database-model serializer="dbm" dbms="DERBY" family-id="DERBY" format-version="4.31">
+    <root id="1">
+      <ServerVersion>10.15.2.0</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="APP">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="NULLID"/>
+    <schema id="4" parent="1" name="SQLJ"/>
+    <schema id="5" parent="1" name="SYS"/>
+    <schema id="6" parent="1" name="SYSCAT"/>
+    <schema id="7" parent="1" name="SYSCS_DIAG"/>
+    <schema id="8" parent="1" name="SYSCS_UTIL"/>
+    <schema id="9" parent="1" name="SYSFUN"/>
+    <schema id="10" parent="1" name="SYSIBM"/>
+    <schema id="11" parent="1" name="SYSPROC"/>
+    <schema id="12" parent="1" name="SYSSTAT"/>
+    <table id="13" parent="2" name="INVENTORY_USER"/>
+    <column id="14" parent="13" name="USERNAME">
+      <DataType>VARCHAR(40)|12s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="15" parent="13" name="PASSWORD">
+      <DataType>VARCHAR(40)|12s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="16" parent="13" name="SQL0000000000-862e0071-017f-eb51-bdd4-000007663168">
+      <ColNames>USERNAME</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="17" parent="13" name="SQL0000000000-862e0071-017f-eb51-bdd4-000007663168">
+      <ColNames>USERNAME</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>SQL0000000000-862e0071-017f-eb51-bdd4-000007663168</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
