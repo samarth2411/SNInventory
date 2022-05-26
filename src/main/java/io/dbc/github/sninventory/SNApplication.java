@@ -21,7 +21,7 @@ public class SNApplication extends Application {
                 Screen.getPrimary().getBounds().getMinX(),
                 Screen.getPrimary().getBounds().getMinY()
         );
-        stage.setTitle("Hello!");
+        stage.setTitle("SN_INVENTORY !");
         stage.setScene(scene);
         stage.show();
     }
