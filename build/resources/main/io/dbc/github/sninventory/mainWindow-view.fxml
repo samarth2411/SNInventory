@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.MainWindowController">
+   <children>
+      <Button alignment="CENTER_RIGHT" layoutX="148.0" layoutY="97.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Current Stock" />
+      <Button layoutX="338.0" layoutY="97.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Product Details" />
+      <Button alignment="CENTER" layoutX="148.0" layoutY="164.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Purchase" />
+      <Button layoutX="340.0" layoutY="164.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Sales" />
+      <Button layoutX="148.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Credit" />
+      <Button layoutX="340.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Debit" />
+      <Button layoutX="148.0" layoutY="297.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Profit" />
+      <Button layoutX="340.0" layoutY="297.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Major" />
+   </children>
+</AnchorPane>
