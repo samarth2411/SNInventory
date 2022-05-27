@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            xmlns="http://javafx.com/javafx"
-            fx:controller="io.dbc.github.sninventory.controller.CurrentStockController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="io.dbc.github.sninventory.controller.CurrentStockController">
+    <children>
+        <TableView prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="productNameColumn" prefWidth="199.0" text="Product Name"/>
+                <TableColumn fx:id="quantatityColumn" prefWidth="213.0" text="Quantity"/>
+                <TableColumn fx:id="priceColumn" prefWidth="187.0" text="Price"/>
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>
