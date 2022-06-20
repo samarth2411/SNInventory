@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16"
+            fx:controller="io.dbc.github.sninventory.controller.AddNewPurchaseController">
+    <HBox layoutX="133.0" layoutY="60.0" prefHeight="34.0" prefWidth="354.0">
+        <Label prefHeight="34.0" prefWidth="173.0" text="Product Name">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+            <font>
+                <Font size="23.0"/>
+            </font>
+        </Label>
+        <ChoiceBox fx:id="productNameChoiceBox" prefHeight="31.0" prefWidth="199.0">
+            <HBox.margin>
+                <Insets left="15.0"/>
+            </HBox.margin>
+        </ChoiceBox>
+    </HBox>
+    <HBox layoutX="176.0" layoutY="125.0" prefHeight="35.0" prefWidth="310.0">
+        <Label prefHeight="35.0" prefWidth="135.0" text="Quantity">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="quantityTextField" prefHeight="31.0" prefWidth="204.0">
+            <HBox.margin>
+                <Insets left="15.0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <HBox layoutX="112.0" layoutY="257.0">
+        <Label prefHeight="35.0" prefWidth="177.0" text="Price of Product">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="priceOfProductTextField" prefHeight="31.0" prefWidth="183.0">
+            <HBox.margin>
+                <Insets left="15.0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <Button fx:id="addButton" layoutX="274.0" layoutY="321.0" mnemonicParsing="false" onAction="#onAddButtonClick"
+            prefHeight="26.0" prefWidth="65.0" text="ADD"/>
+    <HBox layoutX="149.0" layoutY="193.0" prefHeight="35.0" prefWidth="337.0">
+        <Label prefHeight="35.0" prefWidth="177.0" text="Expiry Date">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <DatePicker prefHeight="31.0" prefWidth="198.0" fx:id="expiryDatePicker"/>
+    </HBox>
+</AnchorPane>

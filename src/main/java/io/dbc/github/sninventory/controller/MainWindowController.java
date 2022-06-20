@@ -55,6 +55,8 @@ public class MainWindowController {
         stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public void onPurchaseButtonClick() throws IOException {

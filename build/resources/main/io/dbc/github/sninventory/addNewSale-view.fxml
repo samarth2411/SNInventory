@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.AddNewSaleController">
+    <HBox layoutX="120.0" layoutY="72.0">
+        <Label  text="Product Name">
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Label>
+        <ChoiceBox prefHeight="31.0" prefWidth="199.0" fx:id="productNameChoiceBox">
+            <HBox.margin>
+                <Insets left="15.0" />
+            </HBox.margin>
+        </ChoiceBox>
+    </HBox>
+    <HBox layoutX="170.0" layoutY="132.0">
+        <Label  text="Quantity">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <TextField prefHeight="31.0" prefWidth="204.0" fx:id="quantityTextField">
+            <HBox.margin>
+                <Insets left="15.0" />
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <HBox layoutX="97.0" layoutY="189.0">
+        <Label  text="Price of Product">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <TextField prefHeight="31.0" prefWidth="199.0" fx:id="priceOfProductTextField">
+            <HBox.margin>
+                <Insets left="15.0" />
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <HBox layoutX="186.0" layoutY="246.0">
+        <Label  text="Bill Paid">
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Label>
+        <ChoiceBox prefHeight="31.0" prefWidth="199.0" fx:id="billPaidChoiceBox">
+            <HBox.margin>
+                <Insets left="15.0" />
+            </HBox.margin>
+        </ChoiceBox>
+    </HBox>
+   <Button fx:id="addButton" layoutX="289.0" layoutY="309.0" mnemonicParsing="false" onAction="#onAddButtonClick" text="ADD" />
+</AnchorPane>

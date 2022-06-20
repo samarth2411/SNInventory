@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            xmlns="http://javafx.com/javafx"
-            fx:controller="io.dbc.github.sninventory.controller.ShowPreviousPurchaseController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/16"
+            fx:controller="io.dbc.github.sninventory.controller.ShowPreviousPurchaseController">
+    <TableView fx:id="showPreviousPurchaseTable" prefHeight="400.0" prefWidth="651.0">
+        <columns>
+            <TableColumn fx:id="purchaseIdColumn" prefWidth="89.60000914335251" text="Purchase ID"/>
+            <TableColumn fx:id="productNameColumn" prefWidth="126.39999389648438" text="Product Name"/>
+            <TableColumn fx:id="quantityColumn" prefWidth="109.19999694824219" text="Quantity"/>
+            <TableColumn fx:id="purchasePriceColumn" prefWidth="118.5999755859375" text="Purchase Price"/>
+            <TableColumn fx:id="purchaseDateColumn" prefWidth="98.800048828125" text=" Purchase Date"/>
+            <TableColumn prefWidth="105.5999633789063" text="Expiry Date" fx:id="expiryDateColumn"/>
+        </columns>
+    </TableView>
 </AnchorPane>

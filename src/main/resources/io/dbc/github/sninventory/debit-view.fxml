@@ -4,16 +4,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/16"
             fx:controller="io.dbc.github.sninventory.controller.DebitController">
-    <children>
-        <TableView prefHeight="400.0" prefWidth="625.0">
-            <columns>
-                <TableColumn prefWidth="80.20001524686813" text="Purchase ID"/>
-                <TableColumn prefWidth="110.60000610351562" text="Product Name"/>
-                <TableColumn prefWidth="82.39996337890625" text="Quantity"/>
-                <TableColumn prefWidth="105.60003662109375" text="Purchase Date"/>
-                <TableColumn prefWidth="126.79998779296875" text="Price of a Product "/>
-                <TableColumn prefWidth="118.59994506835938" text="Total Amount"/>
-            </columns>
-        </TableView>
-    </children>
+    <TableView prefHeight="400.0" prefWidth="625.0" fx:id="debitTable">
+        <columns>
+            <TableColumn prefWidth="80.20001524686813" text="Purchase ID" fx:id="purchaseIDColumn"/>
+            <TableColumn prefWidth="110.60000610351562" text="Product Name" fx:id="productNameColumn"/>
+            <TableColumn prefWidth="82.39996337890625" text="Quantity" fx:id="quantityColumn"/>
+            <TableColumn prefWidth="105.60003662109375" text="Purchase Date" fx:id="purchaseDateColumn"/>
+            <TableColumn prefWidth="126.79998779296875" text="Purchase Price" fx:id="purchasePriceColumn"/>
+            <TableColumn prefWidth="118.59994506835938" text="Total Amount" fx:id="totalAmountColumn"/>
+        </columns>
+    </TableView>
 </AnchorPane>
