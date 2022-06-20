@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="580.0" prefWidth="792.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="io.dbc.github.sninventory.controller.AddNewPurchaseController">
+    <HBox layoutX="244.0" layoutY="121.0">
+        <Label text="Product Name">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+            <font>
+                <Font size="23.0"/>
+            </font>
+        </Label>
+        <ChoiceBox fx:id="productNameChoiceBox" prefHeight="31.0" prefWidth="199.0">
+            <HBox.margin>
+                <Insets left="15.0"/>
+            </HBox.margin>
+        </ChoiceBox>
+    </HBox>
+    <HBox layoutX="294.0" layoutY="209.0">
+        <Label text="Quantity">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="quantityTextField" prefHeight="31.0" prefWidth="204.0">
+            <HBox.margin>
+                <Insets left="15.0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <HBox layoutX="222.0" layoutY="363.0">
+        <Label text="Price of Product">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="priceOfProductTextField" prefHeight="31.0" prefWidth="199.0">
+            <HBox.margin>
+                <Insets left="15.0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+    <Button fx:id="addButton" layoutX="382.0" layoutY="474.0" mnemonicParsing="false" onAction="#onAddButtonClick"
+            text="ADD"/>
+    <HBox layoutX="312.0" layoutY="290.0">
+        <children>
+            <Label text="Expiry">
+                <HBox.margin>
+                    <Insets right="30.0"/>
+                </HBox.margin>
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+            <DatePicker fx:id="expiryDatePicker" prefHeight="31.0" prefWidth="199.0">
+                <HBox.margin>
+                    <Insets/>
+                </HBox.margin>
+            </DatePicker>
+        </children>
+    </HBox>
+</AnchorPane>

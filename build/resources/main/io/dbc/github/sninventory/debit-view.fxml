@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.DebitController">
+    <TableView fx:id="debitTable" layoutX="-3.0" prefHeight="400.0" prefWidth="752.0">
+        <columns>
+            <TableColumn fx:id="productNameColumn" prefWidth="145.0" text="Product Name" />
+            <TableColumn fx:id="purchaseIdColumn" prefWidth="111.0" text="Purchase ID" />
+            <TableColumn fx:id="quantityColumn" prefWidth="83.0" text="Quantity" />
+            <TableColumn fx:id="purchasePriceColumn" prefWidth="133.0" text="Purchase Price" />
+            <TableColumn fx:id="purchaseDateColumn" prefWidth="133.0" text="Purchase Date" />
+            <TableColumn fx:id="totalAmountColumn" prefWidth="146.0" text="Total Amount" />
+        </columns>
+    </TableView>
+</AnchorPane>

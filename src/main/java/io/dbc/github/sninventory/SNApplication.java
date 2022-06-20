@@ -16,11 +16,7 @@ public class SNApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(
-                fxmlLoader.load(),
-                Screen.getPrimary().getBounds().getMinX(),
-                Screen.getPrimary().getBounds().getMinY()
-        );
+        Scene scene = new Scene(fxmlLoader.load(), Screen.getPrimary().getBounds().getMinX(), Screen.getPrimary().getBounds().getMinY());
         stage.setTitle("SN_INVENTORY !");
         stage.setScene(scene);
         stage.show();

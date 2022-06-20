@@ -2,24 +2,24 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171">
-   <children>
-      <Button fx:id="currentStockButton" layoutX="88.0" layoutY="65.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="129.0" text="Current Stock "/>
-      <Button fx:id="purchaseButton" layoutX="88.0" layoutY="143.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="129.0" text="Purchase"/>
-      <Button fx:id="creditButton" layoutX="88.0" layoutY="216.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="129.0" text="Credit"/>
-      <Button fx:id="profitButton" layoutX="88.0" layoutY="293.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="129.0" text="Profit"/>
-      <Button fx:id="productDetailsButton" layoutX="393.0" layoutY="65.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="121.0" text="Product Details"/>
-      <Button fx:id="salesButton" layoutX="393.0" layoutY="143.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="121.0" text="Sales"/>
-      <Button fx:id="debitButton" layoutX="393.0" layoutY="216.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="121.0" text="Debit"/>
-      <Button fx:id="majorButton" layoutX="393.0" layoutY="293.0" mnemonicParsing="false" prefHeight="31.0"
-              prefWidth="121.0" text="Major"/>
-   </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="io.dbc.github.sninventory.controller.MainWindowController">
+
+    <Button fx:id="currentStockButton" layoutX="137.0" layoutY="97.0" mnemonicParsing="false"
+            onAction="#onCurrentStockButtonClick" prefHeight="31.0" prefWidth="120.0" text="Current Stock "/>
+    <Button fx:id="productDetailsButton" layoutX="338.0" layoutY="97.0" mnemonicParsing="false"
+            onAction="#onProductDetailsButtonClick" prefHeight="31.0" prefWidth="127.0" text="Product Details"/>
+    <Button fx:id="purchaseButton" layoutX="134.0" layoutY="164.0" mnemonicParsing="false"
+            onAction="#onPurchaseButtonClick" prefHeight="31.0" prefWidth="120.0" text="Purchase"/>
+    <Button fx:id="salesButton" layoutX="340.0" layoutY="164.0" mnemonicParsing="false" onAction="#onSalesButtonClick"
+            prefHeight="31.0" prefWidth="127.0" text="Sales"/>
+    <Button fx:id="creditButton" layoutX="134.0" layoutY="232.0" mnemonicParsing="false" onAction="#onCreditButtonClick"
+            prefHeight="31.0" prefWidth="120.0" text="Credit"/>
+    <Button fx:id="debitButton" layoutX="340.0" layoutY="232.0" mnemonicParsing="false" onAction="#onDebitButtonClick"
+            prefHeight="31.0" prefWidth="127.0" text="Debit"/>
+    <Button fx:id="profitLossButton" layoutX="137.0" layoutY="297.0" mnemonicParsing="false"
+            onAction="#onProfitButtonClick" prefHeight="31.0" prefWidth="120.0" text="Profit &amp; Loss"/>
+    <Button fx:id="majorButton" layoutX="340.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMajorButtonClick"
+            prefHeight="31.0" prefWidth="127.0" text="Major"/>
 </AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="580.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.ShowPreviousPurchaseController">
+
+    <TableView fx:id="showPreviousPurchaseTable" prefHeight="580.0" prefWidth="894.0">
+        <columns>
+            <TableColumn fx:id="purchaseIdColumn" prefWidth="113.0" text="Purchase ID" />
+            <TableColumn fx:id="productNameColumn" prefWidth="194.0" text="Product Name" />
+            <TableColumn fx:id="quantityColumn" prefWidth="110.0" text="Quantity" />
+            <TableColumn fx:id="purchasePriceColumn" prefWidth="160.0" text="Purchase Price" />
+            <TableColumn fx:id="purchaseDateColumn" prefWidth="177.0" text="Purchase Date" />
+         <TableColumn fx:id="expiryDateColumn" prefWidth="138.0" text="Expiry Date" />
+        </columns>
+    </TableView>
+</AnchorPane>
