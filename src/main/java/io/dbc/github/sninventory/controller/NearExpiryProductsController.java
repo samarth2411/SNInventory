@@ -1,6 +1,5 @@
 package io.dbc.github.sninventory.controller;
 
-
 import io.dbc.github.sninventory.SNApplication;
 import io.dbc.github.sninventory.database.DatabaseConnection;
 import io.dbc.github.sninventory.model.Purchase;
@@ -25,8 +24,7 @@ import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
-
-public class ExpiredProductsController implements Initializable {
+public class NearExpiryProductsController implements Initializable {
     @FXML
     public TableColumn<Purchase, String> productNameColumn;
     @FXML
@@ -34,14 +32,13 @@ public class ExpiredProductsController implements Initializable {
     @FXML
     public TableColumn<Purchase, Date> expiryDateColumn;
     @FXML
+    public TableColumn<Purchase, Float> daysLeftInExpiryColumn;
+    @FXML
     public TableColumn<Purchase, Integer> purchaseIdColumn;
     @FXML
-    public TableView<Purchase> expiredProductTable;
+    public TableView<Purchase> nearExpiryProductTable;
     @FXML
     public Button backButton;
-    @FXML
-    public Button removeAllProductsButton;
-
 
     ObservableList<Purchase> list = FXCollections.observableArrayList();
 
@@ -53,6 +50,7 @@ public class ExpiredProductsController implements Initializable {
         productNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantityPurchased"));
         expiryDateColumn.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
+        daysLeftInExpiryColumn.setCellValueFactory(new PropertyValueFactory<>("daysLeftInExpiry"));
         try {
             Connection connection = DatabaseConnection.addConnection();
 
@@ -69,6 +67,7 @@ public class ExpiredProductsController implements Initializable {
 
 
                 while (resultSet1.next()) {
+                    //Date expiryDate = resultSet1.getDate(4);
                     list.add(new Purchase(resultSet1.getInt(1),
                             resultSet1.getString(2),
                             resultSet1.getInt(3),
@@ -76,28 +75,34 @@ public class ExpiredProductsController implements Initializable {
                     ));
                 }
 
+
                 FXCollections.reverse(list);
+
 
                 while (currentQuantity > 0) {
                     for (Purchase purchase : list) {
+                        long daysLeft = (purchase.getExpiryDate().getTime() - new Date(Calendar.getInstance().getTime().getTime()).getTime());
+                        int daysLeftInExpiry = (int) (daysLeft / (1000 * 60 * 60 * 24));
                         if (!purchase.getExpiryDate().before(new Date(Calendar.getInstance().getTime().getTime()))) {
-                            currentQuantity -= purchase.getQuantityPurchased();
-                        } else {
-                            if (currentQuantity > purchase.getQuantityPurchased()) {
-                                list1.add(purchase);
+
+
+                            if (daysLeftInExpiry > 30.0) {
                                 currentQuantity -= purchase.getQuantityPurchased();
                             } else {
-                                list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(),
-                                        currentQuantity, purchase.getExpiryDate()));
-                                currentQuantity = 0;
-
-
-                                break;
+                                if (currentQuantity > purchase.getQuantityPurchased()) {
+                                    list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(),
+                                            purchase.getQuantityPurchased(), purchase.getExpiryDate(), daysLeftInExpiry));
+                                    currentQuantity -= purchase.getQuantityPurchased();
+                                } else {
+                                    list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(),
+                                            currentQuantity, purchase.getExpiryDate(), daysLeftInExpiry));
+                                    currentQuantity = 0;
+                                    break;
+                                }
                             }
                         }
                     }
-
-                    expiredProductTable.setItems(list1);
+                    nearExpiryProductTable.setItems(list1);
                 }
             }
         } catch (Exception exception) {
@@ -117,16 +122,4 @@ public class ExpiredProductsController implements Initializable {
         stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
-
-//    public void onRemoveAllProductsButtonClick() throws SQLException, ClassNotFoundException {
-//        for (Purchase purchase:list1) {
-//            Connection connection = DatabaseConnection.addConnection();
-//            String updateQuery = "";
-//            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-//            preparedStatement.setInt();
-//            preparedStatement.setString();
-//
-//        }
-//
-//    }
 }

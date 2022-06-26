@@ -1,11 +1,16 @@
 package io.dbc.github.sninventory.controller;
 
+import io.dbc.github.sninventory.SNApplication;
 import io.dbc.github.sninventory.database.DatabaseConnection;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,8 +24,10 @@ public class AddNewProductController {
     public TextField descriptionTextField;
     @FXML
     public Button addButton;
+    @FXML
+    public Button backButton;
 
-    public void onAddButtonClick() throws SQLException, ClassNotFoundException {
+    public void onAddButtonClick() throws SQLException, ClassNotFoundException, IOException {
 
 
         String productName = productNameTextField.getText();
@@ -45,7 +52,30 @@ public class AddNewProductController {
 
         JOptionPane.showMessageDialog(null, productName + "Product Added to the System", "Successfully Added", JOptionPane.INFORMATION_MESSAGE);
 
+        Stage stage = new Stage();
+        stage = (Stage) addButton.getScene().getWindow();
+        stage.close();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("productDetails-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+
+        stage.setTitle("Product Details");
+        stage.setScene(scene);
+        stage.show();
+
     }
+
+    public void onBackButtonClick() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("productDetails-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
+        stage.setScene(scene);
+        stage.show();
+        stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
+    }
+
 }
 
 

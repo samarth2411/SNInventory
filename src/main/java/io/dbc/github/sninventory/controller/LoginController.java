@@ -1,7 +1,6 @@
 package io.dbc.github.sninventory.controller;
 
 import io.dbc.github.sninventory.SNApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,7 +8,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,7 +25,7 @@ public class LoginController {
 
     // a method to control the button
     @FXML
-    public void onLoginButtonClick(ActionEvent actionEvent) throws IOException {
+    public void onLoginButtonClick() throws IOException {
 
         String username = usernameTextField.getText();
         String password = passwordField.getText();
@@ -41,11 +39,14 @@ public class LoginController {
 
 
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainwindow-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), Screen.getPrimary().getBounds().getMinX(), Screen.getPrimary().getBounds().getMinY());
+            FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainWindow-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
             stage.setTitle("Hello!");
             stage.setScene(scene);
             stage.show();
+
+            stage = (Stage) loginButton.getScene().getWindow();
+            stage.close();
 
 
         } else {

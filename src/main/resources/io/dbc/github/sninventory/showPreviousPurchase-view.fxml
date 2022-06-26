@@ -2,18 +2,20 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="580.0" prefWidth="887.0"
-            xmlns="http://javafx.com/javafx/8.0.171"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="650.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
             fx:controller="io.dbc.github.sninventory.controller.ShowPreviousPurchaseController">
-
-    <TableView fx:id="showPreviousPurchaseTable" prefHeight="580.0" prefWidth="894.0">
+    <TableView fx:id="showPreviousPurchaseTable" prefHeight="372.0" prefWidth="650.0">
         <columns>
-            <TableColumn fx:id="purchaseIdColumn" prefWidth="113.0" text="Purchase ID"/>
-            <TableColumn fx:id="productNameColumn" prefWidth="194.0" text="Product Name"/>
-            <TableColumn fx:id="quantityColumn" prefWidth="110.0" text="Quantity"/>
-            <TableColumn fx:id="purchasePriceColumn" prefWidth="160.0" text="Purchase Price"/>
-            <TableColumn fx:id="purchaseDateColumn" prefWidth="177.0" text="Purchase Date"/>
-            <TableColumn fx:id="expiryDateColumn" prefWidth="138.0" text="Expiry Date"/>
+            <TableColumn fx:id="purchaseIdColumn" prefWidth="89.60000914335251" text="Purchase ID"/>
+            <TableColumn fx:id="productNameColumn" prefWidth="126.39999389648438" text="Product Name"/>
+            <TableColumn fx:id="quantityColumn" prefWidth="109.19999694824219" text="Quantity"/>
+            <TableColumn fx:id="purchasePriceColumn" prefWidth="118.5999755859375" text="Purchase Price"/>
+            <TableColumn fx:id="purchaseDateColumn" prefWidth="98.800048828125" text=" Purchase Date"/>
+            <TableColumn fx:id="expiryDateColumn" prefWidth="105.5999633789063" text="Expiry Date"/>
         </columns>
     </TableView>
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false"
+            onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back"/>
+    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0"/>
 </AnchorPane>

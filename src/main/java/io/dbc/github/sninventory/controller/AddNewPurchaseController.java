@@ -1,16 +1,21 @@
 package io.dbc.github.sninventory.controller;
 
+import io.dbc.github.sninventory.SNApplication;
 import io.dbc.github.sninventory.database.DatabaseConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.Calendar;
@@ -30,6 +35,8 @@ public class AddNewPurchaseController implements Initializable {
     public Button addButton;
     @FXML
     public DatePicker expiryDatePicker;
+    @FXML
+    public Button backButton;
 
     ObservableList<String> list = FXCollections.observableArrayList();
     Connection connection;
@@ -56,7 +63,7 @@ public class AddNewPurchaseController implements Initializable {
         }
     }
 
-    public void onAddButtonClick() throws SQLException, ClassNotFoundException {
+    public void onAddButtonClick() throws SQLException, ClassNotFoundException, IOException {
         connection = DatabaseConnection.addConnection();
         String productName = productNameChoiceBox.getSelectionModel().getSelectedItem();
         int productQuantity = Integer.parseInt(quantityTextField.getText());
@@ -93,6 +100,27 @@ public class AddNewPurchaseController implements Initializable {
                 "Successfully Purchased",
                 JOptionPane.INFORMATION_MESSAGE
         );
+        Stage stage = new Stage();
+        stage = (Stage) addButton.getScene().getWindow();
+        stage.close();
 
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("showPreviousPurchase-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+
+        stage.setTitle("Previous Purchase.");
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void onBackButtonClick() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("purchase-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
+        stage.setScene(scene);
+        stage.show();
+        stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
     }
 }

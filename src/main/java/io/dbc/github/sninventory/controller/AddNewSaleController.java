@@ -1,16 +1,21 @@
 package io.dbc.github.sninventory.controller;
 
+import io.dbc.github.sninventory.SNApplication;
 import io.dbc.github.sninventory.database.DatabaseConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.Calendar;
@@ -27,6 +32,8 @@ public class AddNewSaleController implements Initializable {
     public ChoiceBox<Boolean> billPaidChoiceBox;
     @FXML
     public Button addButton;
+    @FXML
+    public Button backButton;
 
 
     ObservableList<String> list = FXCollections.observableArrayList();
@@ -53,7 +60,7 @@ public class AddNewSaleController implements Initializable {
         }
     }
 
-    public void onAddButtonClick() throws SQLException, ClassNotFoundException {
+    public void onAddButtonClick() throws SQLException, ClassNotFoundException, IOException {
         connection = DatabaseConnection.addConnection();
         String productName = productNameChoiceBox.getSelectionModel().getSelectedItem();
         int productQuantity = Integer.parseInt(quantityTextField.getText());
@@ -96,11 +103,43 @@ public class AddNewSaleController implements Initializable {
                     "Query Executed Successfully",
                     JOptionPane.INFORMATION_MESSAGE
             );
+            Stage stage = new Stage();
+            stage = (Stage) addButton.getScene().getWindow();
+            stage.close();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("showPreviousSales-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+
+            stage.setTitle("Previous Sales.");
+            stage.setScene(scene);
+            stage.show();
+
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("LESS PRODUCT AVAILABLE");
             alert.setContentText("The available quantity of" + productName + " is " + currentQuantity);
             alert.showAndWait();
+            Stage stage = new Stage();
+            stage = (Stage) addButton.getScene().getWindow();
+            stage.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("addNewSale-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+
+            stage.setTitle(" Add New Sale.");
+            stage.setScene(scene);
+            stage.show();
         }
+
+    }
+
+    public void onBackButtonClick() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("sales-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
+        stage.setScene(scene);
+        stage.show();
+        stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
     }
 }

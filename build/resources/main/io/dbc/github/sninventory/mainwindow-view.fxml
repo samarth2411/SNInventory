@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.MainWindowController">
-
-    <Button fx:id="currentStockButton" layoutX="137.0" layoutY="97.0" mnemonicParsing="false" onAction="#onCurrentStockButtonClick" prefHeight="31.0" prefWidth="120.0" text="Current Stock " />
-    <Button fx:id="productDetailsButton" layoutX="338.0" layoutY="97.0" mnemonicParsing="false" onAction="#onProductDetailsButtonClick" prefHeight="31.0" prefWidth="127.0" text="Product Details" />
-    <Button fx:id="purchaseButton" layoutX="134.0" layoutY="164.0" mnemonicParsing="false" onAction="#onPurchaseButtonClick" prefHeight="31.0" prefWidth="120.0" text="Purchase" />
-    <Button fx:id="salesButton" layoutX="340.0" layoutY="164.0" mnemonicParsing="false" onAction="#onSalesButtonClick" prefHeight="31.0" prefWidth="127.0" text="Sales" />
-    <Button fx:id="creditButton" layoutX="134.0" layoutY="232.0" mnemonicParsing="false" onAction="#onCreditButtonClick" prefHeight="31.0" prefWidth="120.0" text="Credit" />
-    <Button fx:id="debitButton" layoutX="340.0" layoutY="232.0" mnemonicParsing="false" onAction="#onDebitButtonClick" prefHeight="31.0" prefWidth="127.0" text="Debit" />
-    <Button fx:id="profitLossButton" layoutX="137.0" layoutY="297.0" mnemonicParsing="false" onAction="#onProfitButtonClick" prefHeight="31.0" prefWidth="120.0" text="Profit &amp; Loss" />
-    <Button fx:id="majorButton" layoutX="340.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMajorButtonClick" prefHeight="31.0" prefWidth="127.0" text="Major" />
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.MainWindowController">
+    <Button fx:id="currentStockButton" layoutX="172.0" layoutY="97.0" mnemonicParsing="false" onAction="#onCurrentStockButtonClick" prefHeight="36.0" prefWidth="118.0" text="Current Stock ">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
+    <Button fx:id="productDetailsButton" layoutX="361.0" layoutY="97.0" mnemonicParsing="false" onAction="#onProductDetailsButtonClick" prefHeight="36.0" prefWidth="118.0" text="Product Details">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
+    <Button fx:id="purchaseButton" layoutX="172.0" layoutY="164.0" mnemonicParsing="false" onAction="#onPurchaseButtonClick" prefHeight="36.0" prefWidth="118.0" text="Purchase">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
+    <Button fx:id="salesButton" layoutX="361.0" layoutY="164.0" mnemonicParsing="false" onAction="#onSalesButtonClick" prefHeight="36.0" prefWidth="118.0" text="Sales">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
+    <Button fx:id="creditButton" layoutX="172.0" layoutY="232.0" mnemonicParsing="false" onAction="#onCreditButtonClick" prefHeight="36.0" prefWidth="118.0" text="Credit">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
+    <Button fx:id="debitButton" layoutX="361.0" layoutY="232.0" mnemonicParsing="false" onAction="#onDebitButtonClick" prefHeight="36.0" prefWidth="118.0" text="Debit">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
+    <Button fx:id="profitButton" layoutX="172.0" layoutY="297.0" mnemonicParsing="false" onAction="#onProfitButtonClick" prefHeight="36.0" prefWidth="118.0" text="Profit">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
+    <Button fx:id="majorButton" layoutX="361.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMajorButtonClick" prefHeight="36.0" prefWidth="118.0" text="Major">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
 </AnchorPane>

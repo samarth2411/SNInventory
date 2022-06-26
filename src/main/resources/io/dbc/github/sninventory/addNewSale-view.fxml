@@ -3,12 +3,11 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="643.0" prefWidth="821.0"
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="650.0"
             xmlns="http://javafx.com/javafx/8.0.171"
             fx:controller="io.dbc.github.sninventory.controller.AddNewSaleController">
-
-    <HBox layoutX="244.0" layoutY="97.0">
+    <HBox layoutX="145.0" layoutY="74.0">
         <Label text="Product Name">
             <HBox.margin>
                 <Insets/>
@@ -23,7 +22,7 @@
             </HBox.margin>
         </ChoiceBox>
     </HBox>
-    <HBox layoutX="294.0" layoutY="184.0">
+    <HBox layoutX="195.0" layoutY="130.0">
         <Label text="Quantity">
             <font>
                 <Font size="24.0"/>
@@ -35,7 +34,7 @@
             </HBox.margin>
         </TextField>
     </HBox>
-    <HBox layoutX="222.0" layoutY="281.0">
+    <HBox layoutX="122.0" layoutY="189.0">
         <Label text="Price of Product">
             <font>
                 <Font size="24.0"/>
@@ -47,7 +46,7 @@
             </HBox.margin>
         </TextField>
     </HBox>
-    <HBox layoutX="311.0" layoutY="365.0">
+    <HBox layoutX="211.0" layoutY="246.0">
         <Label text="Bill Paid">
             <HBox.margin>
                 <Insets/>
@@ -62,6 +61,13 @@
             </HBox.margin>
         </ChoiceBox>
     </HBox>
-    <Button fx:id="addButton" layoutX="411.0" layoutY="479.0" mnemonicParsing="false" onAction="#onAddButtonClick"
-            text="ADD"/>
+    <Button fx:id="addButton" layoutX="284.0" layoutY="310.0" mnemonicParsing="false" onAction="#onAddButtonClick"
+            prefHeight="26.0" prefWidth="91.0" text="ADD">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false"
+            onAction="#onBackButtonClick" prefHeight="31.0" prefWidth="69.0" text="&lt; Back"/>
+    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0"/>
 </AnchorPane>

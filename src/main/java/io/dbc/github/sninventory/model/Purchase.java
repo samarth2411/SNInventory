@@ -54,6 +54,13 @@ public class Purchase extends Product {
         this.quantityPurchased = quantityPurchased;
     }
 
+    public Purchase(int purchaseID, String productName, Date purchaseDate, int quantityPurchased) {
+        super(productName);
+        this.purchaseDate = purchaseDate;
+        this.purchaseID = purchaseID;
+        this.quantityPurchased = quantityPurchased;
+    }
+
     public double getTotalAmount() {
         return totalAmount;
     }

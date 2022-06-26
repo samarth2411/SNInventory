@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -39,6 +38,8 @@ public class ProductDetailsController implements Initializable {
     public TableColumn<Product, String> descriptionColumn;
     @FXML
     public TableView<Product> productDetailsTable;
+    @FXML
+    public Button backButton;
 
     ObservableList<Product> list = FXCollections.observableArrayList();
 
@@ -79,12 +80,24 @@ public class ProductDetailsController implements Initializable {
                 new FXMLLoader(SNApplication.class.getResource("addNewProduct-view.fxml"));
         Scene scene = new Scene(
                 fxmlLoader.load(),
-                Screen.getPrimary().getBounds().getMinX(),
-                Screen.getPrimary().getBounds().getMinY()
+                650, 400
         );
         stage.setTitle("Add New Product");
         stage.setScene(scene);
         stage.show();
+        stage = (Stage) addNewProductButton.getScene().getWindow();
+        stage.close();
 
+    }
+
+    public void onBackButtonClick() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainWindow-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
+        stage.setScene(scene);
+        stage.show();
+        stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
     }
 }

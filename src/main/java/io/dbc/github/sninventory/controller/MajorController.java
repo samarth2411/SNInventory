@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,36 +19,54 @@ public class MajorController {
 
     @FXML
     public Button dumpStockButton;
+    @FXML
+    public Button backButton;
 
     public void onExpiredProductButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("expiredProducts-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Screen.getPrimary().getBounds().getMinX(), Screen.getPrimary().getBounds().getMinY());
+        Scene scene = new Scene(fxmlLoader.load(), 650, 400);
         stage.setTitle("Expired Products");
         stage.setScene(scene);
         stage.show();
+        stage = (Stage) expiredProductButton.getScene().getWindow();
+        stage.close();
 
     }
 
     public void onNearExpiryProductButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("nearExpiryProducts-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Screen.getPrimary().getBounds().getMinX(), Screen.getPrimary().getBounds().getMinY());
+        Scene scene = new Scene(fxmlLoader.load(), 650, 400);
         stage.setTitle("Near Expiry Products");
         stage.setScene(scene);
         stage.show();
+        stage = (Stage) nearExpiryProductButton.getScene().getWindow();
+        stage.close();
 
     }
 
     public void onDumpStockButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("dumpStock-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), Screen.getPrimary().getBounds().getMinX(), Screen.getPrimary().getBounds().getMinY());
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
         stage.setTitle("Dump Stock");
         stage.setScene(scene);
         stage.show();
+        stage = (Stage) dumpStockButton.getScene().getWindow();
+        stage.close();
 
     }
 
 
+    public void onBackButtonClick() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainWindow-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
+        stage.setScene(scene);
+        stage.show();
+        stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
+    }
 }
