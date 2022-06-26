@@ -2,17 +2,17 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/11.0.2"
-            fx:controller="io.dbc.github.sninventory.controller.ShowCreditsController">
-    <TableView prefHeight="400.0" prefWidth="600.0" fx:id="showCreditTable">
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.ShowCreditsController">
+    <TableView fx:id="showCreditTable" prefHeight="374.0" prefWidth="650.0">
         <columns>
-            <TableColumn fx:id="saleIDColumn" prefWidth="88.60000765323639" text="Sale ID"/>
-            <TableColumn fx:id="productNameColumn" prefWidth="109.79998016357422" text="Product Name"/>
-            <TableColumn fx:id="dateOfSaleColumn" prefWidth="100.20001220703125" text="Date of Sale"/>
-            <TableColumn fx:id="quantityColumn" prefWidth="79.5999755859375" text="Quantity"/>
-            <TableColumn fx:id="sellingPriceColumn" prefWidth="104.0" text="Selling Price"/>
-            <TableColumn fx:id="totalAmountColumn" prefWidth="125.60000610351562" text="Total Amount"/>
+            <TableColumn fx:id="saleIDColumn" prefWidth="76.80000150203705" text="Sale ID" />
+            <TableColumn fx:id="productNameColumn" prefWidth="122.4000015258789" text="Product Name" />
+            <TableColumn fx:id="dateOfSaleColumn" prefWidth="100.20001220703125" text="Date of Sale" />
+            <TableColumn fx:id="quantityColumn" prefWidth="87.0" text="Quantity" />
+            <TableColumn fx:id="sellingPriceColumn" prefWidth="113.0" text="Selling Price" />
+            <TableColumn fx:id="totalAmountColumn" prefWidth="149.59994506835938" text="Total Amount" />
         </columns>
     </TableView>
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />
+    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0" />
 </AnchorPane>

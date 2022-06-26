@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Jun 02 18:53:01 UTC 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0181-25c3-8680-000007607000 
+on database directory C:\Users\laves\IdeaProjects\sn-inventory with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@7aec35a 
+Loaded from file:/C:/Users/laves/AppData/Roaming/JetBrains/IntelliJIdea2022.1/jdbc-drivers/Apache%20Derby/10.15.2.0/derby-10.15.2.0.jar
+java.vendor=JetBrains s.r.o.
+java.runtime.version=11.0.14.1+1-b2043.45
+user.dir=C:\Users\laves\IdeaProjects\SNInventory
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

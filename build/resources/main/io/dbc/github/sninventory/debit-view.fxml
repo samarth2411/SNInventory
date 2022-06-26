@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/16"
-            fx:controller="io.dbc.github.sninventory.controller.DebitController">
-    <TableView prefHeight="400.0" prefWidth="625.0" fx:id="debitTable">
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.DebitController">
+    <TableView fx:id="debitTable" prefHeight="374.0" prefWidth="650.0">
         <columns>
-            <TableColumn prefWidth="80.20001524686813" text="Purchase ID" fx:id="purchaseIDColumn"/>
-            <TableColumn prefWidth="110.60000610351562" text="Product Name" fx:id="productNameColumn"/>
-            <TableColumn prefWidth="82.39996337890625" text="Quantity" fx:id="quantityColumn"/>
-            <TableColumn prefWidth="105.60003662109375" text="Purchase Date" fx:id="purchaseDateColumn"/>
-            <TableColumn prefWidth="126.79998779296875" text="Purchase Price" fx:id="purchasePriceColumn"/>
-            <TableColumn prefWidth="118.59994506835938" text="Total Amount" fx:id="totalAmountColumn"/>
+            <TableColumn fx:id="purchaseIDColumn" prefWidth="80.20001524686813" text="Purchase ID" />
+            <TableColumn fx:id="productNameColumn" prefWidth="118.1999740600586" text="Product Name" />
+            <TableColumn fx:id="quantityColumn" prefWidth="87.39999389648438" text="Quantity" />
+            <TableColumn fx:id="purchaseDateColumn" prefWidth="108.0" text="Purchase Date" />
+            <TableColumn fx:id="purchasePriceColumn" prefWidth="127.00003051757812" text="Purchase Price" />
+            <TableColumn fx:id="totalAmountColumn" prefWidth="129.5999755859375" text="Total Amount" />
         </columns>
     </TableView>
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />
+    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0" />
 </AnchorPane>

@@ -2,15 +2,15 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/11.0.2"
-            fx:controller="io.dbc.github.sninventory.controller.DumpStockController">
-    <TableView prefHeight="413.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.DumpStockController">
+    <TableView fx:id="dumpStockTable" prefHeight="373.0" prefWidth="650.0">
         <columns>
-            <TableColumn fx:id="purchaseIDColumn" prefWidth="121.20001524686813" text="Purchase ID"/>
-            <TableColumn fx:id="productNameColumn" prefWidth="159.59996032714844" text="Product Name "/>
-            <TableColumn fx:id="quantityColumn" prefWidth="124.39999389648438" text="Quantity"/>
-            <TableColumn fx:id="purchaseDateColumn" prefWidth="195.4000244140625" text="Purchase Date"/>
+            <TableColumn fx:id="purchaseIdColumn" prefWidth="132.59999692440033" text="Purchase ID" />
+            <TableColumn fx:id="productNameColumn" prefWidth="183.4000244140625" text="Product Name " />
+            <TableColumn fx:id="purchaseDateColumn" prefWidth="187.60003662109375" text="Purchase Date" />
+            <TableColumn fx:id="quantityColumn" prefWidth="145.39999389648438" text="Quantity" />
         </columns>
     </TableView>
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />
+    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0" />
 </AnchorPane>

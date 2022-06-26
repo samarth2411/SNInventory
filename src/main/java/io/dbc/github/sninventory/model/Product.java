@@ -15,7 +15,7 @@ public class Product {
 
     private int quantity;
 
-    private int daysLeftInExpiry;
+    private int   daysLeftInExpiry;
 
     public Product(String productName, double productPrice, int quantity, String description) {
         this.productName = productName;
@@ -43,7 +43,7 @@ public class Product {
 
     }
 
-    public Product(String productName, Date expiryDate, int daysLeftInExpiry) {
+    public Product(String productName, Date expiryDate, int  daysLeftInExpiry) {
         this.productName = productName;
         this.expiryDate = expiryDate;
         this.daysLeftInExpiry = daysLeftInExpiry;
@@ -62,7 +62,7 @@ public class Product {
         return daysLeftInExpiry;
     }
 
-    public void setDaysLeftInExpiry(int daysLeftInExpiry) {
+    public void setDaysLeftInExpiry(int  daysLeftInExpiry) {
         this.daysLeftInExpiry = daysLeftInExpiry;
     }
 

@@ -13,7 +13,7 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.8.1'
+    junitVersion = '5.8.2'
 }
 
 sourceCompatibility = '17'
@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'io.dbc.github.sninventory'
-    mainClass = 'io.dbc.github.sninventory.HelloApplication'
+    mainClass = 'io.dbc.github.sninventory.SNApplication'
 }
 
 javafx {
@@ -37,6 +37,9 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation("mysql:mysql-connector-java:8.0.29")
+
+
 }
 
 test {
