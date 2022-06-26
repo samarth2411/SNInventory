@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="sn-inventory@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.31">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.39">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1141,44 +1141,44 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <Charset>eucjpms</Charset>
     </collation>
     <schema id="324" parent="1" name="sn-inventory">
-      <Collation>utf8mb4_general_ci</Collation>
       <Current>1</Current>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="325" parent="1" name="information_schema">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="326" parent="1" name="java">
-      <Collation>utf8mb4_general_ci</Collation>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="327" parent="1" name="mtest">
-      <Collation>utf8mb4_general_ci</Collation>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="328" parent="1" name="mysql">
-      <Collation>utf8mb4_general_ci</Collation>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="329" parent="1" name="performance_schema">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="330" parent="1" name="phpmyadmin">
-      <Collation>utf8_bin</Collation>
+      <CollationName>utf8_bin</CollationName>
     </schema>
     <schema id="331" parent="1" name="practical">
-      <Collation>utf8mb4_general_ci</Collation>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="332" parent="1" name="practical1">
-      <Collation>utf8mb4_general_ci</Collation>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="333" parent="1" name="practical2">
-      <Collation>utf8mb4_general_ci</Collation>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="334" parent="1" name="samarth">
-      <Collation>utf8mb4_general_ci</Collation>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="335" parent="1" name="test">
-      <Collation>latin1_swedish_ci</Collation>
+      <CollationName>latin1_swedish_ci</CollationName>
     </schema>
     <schema id="336" parent="1" name="project1">
-      <Collation>utf8mb4_general_ci</Collation>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="337" parent="1" name="root">
       <Host>localhost</Host>
@@ -1192,103 +1192,5 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     <user id="340" parent="1" name="pma">
       <Host>localhost</Host>
     </user>
-    <table id="341" parent="324" name="product_details"/>
-    <table id="342" parent="324" name="purchase"/>
-    <table id="343" parent="324" name="sales"/>
-    <column id="344" parent="341" name="productName">
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="345" parent="341" name="productPrice">
-      <DataType>double|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="346" parent="341" name="quantity">
-      <DataType>int(11)|0s</DataType>
-      <Position>3</Position>
-    </column>
-    <column id="347" parent="341" name="description">
-      <DataType>varchar(200)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <key id="348" parent="341" name="PRIMARY">
-      <ColNames>productName</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-    </key>
-    <column id="349" parent="342" name="PurchaseID">
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="350" parent="342" name="ProductName">
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="351" parent="342" name="Quantity">
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="352" parent="342" name="PurchasePrice">
-      <DataType>double|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="353" parent="342" name="PurchaseDate">
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="354" parent="342" name="ExpiryDate">
-      <DataType>date|0s</DataType>
-      <Position>6</Position>
-    </column>
-    <key id="355" parent="342" name="PRIMARY">
-      <ColNames>PurchaseID</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-    </key>
-    <column id="356" parent="343" name="SalesID">
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="357" parent="343" name="ProductName">
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="358" parent="343" name="QuantitySold">
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="359" parent="343" name="SellingPrice">
-      <DataType>double|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="360" parent="343" name="DateOfSale">
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="361" parent="343" name="BillPaid">
-      <DataType>tinyint(1)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <key id="362" parent="343" name="PRIMARY">
-      <ColNames>SalesID</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-    </key>
   </database-model>
 </dataSource>
