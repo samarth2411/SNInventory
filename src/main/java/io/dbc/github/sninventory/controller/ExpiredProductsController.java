@@ -18,7 +18,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
@@ -31,7 +34,7 @@ public class ExpiredProductsController implements Initializable {
     @FXML
     public TableColumn<Purchase, Date> expiryDateColumn;
     @FXML
-    public TableColumn<Purchase, Integer> purchaseIDColumn;
+    public TableColumn<Purchase, Integer> purchaseIdColumn;
     @FXML
     public TableView<Purchase> expiredProductTable;
     @FXML
@@ -46,14 +49,14 @@ public class ExpiredProductsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        purchaseIDColumn.setCellValueFactory(new PropertyValueFactory<>("purchaseID"));
+        purchaseIdColumn.setCellValueFactory(new PropertyValueFactory<>("purchaseID"));
         productNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantityPurchased"));
         expiryDateColumn.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
         try {
             Connection connection = DatabaseConnection.addConnection();
 
-            String selectQuery = "SELECT ProductName,Quantity FROM product_details where Quantity>0";
+            String selectQuery = "SELECT ProductName,Quantity FROM product_details";
             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
             ResultSet resultSet = preparedStatement.executeQuery(selectQuery);
 
@@ -79,26 +82,24 @@ public class ExpiredProductsController implements Initializable {
                     for (Purchase purchase : list) {
                         if (!purchase.getExpiryDate().before(new Date(Calendar.getInstance().getTime().getTime()))) {
                             currentQuantity -= purchase.getQuantityPurchased();
-                        }
-                        else if(currentQuantity > 0)
-                        {
-                            if (currentQuantity >=purchase.getQuantityPurchased()) {
+                        } else {
+                            if (currentQuantity > purchase.getQuantityPurchased()) {
                                 list1.add(purchase);
                                 currentQuantity -= purchase.getQuantityPurchased();
-                            }
-                            else  {
+                            } else {
                                 list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(),
                                         currentQuantity, purchase.getExpiryDate()));
                                 currentQuantity = 0;
+
+
                                 break;
                             }
                         }
                     }
 
                     expiredProductTable.setItems(list1);
-                    }
                 }
-
+            }
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
             exception.printStackTrace();
@@ -106,26 +107,26 @@ public class ExpiredProductsController implements Initializable {
         }
     }
 
-    public void onRemoveAllProductsButtonClick() throws SQLException, ClassNotFoundException {
-        for (Purchase purchase:list1) {
-            Connection connection=DatabaseConnection.addConnection();
-            String updateQuery="UPDATE product_details set Quantity=product_details.Quantity-? where ProductName=?";
-            PreparedStatement preparedStatement=connection.prepareStatement(updateQuery);
-            preparedStatement.setInt(1,purchase.getQuantityPurchased());
-            preparedStatement.setString(2,purchase.getProductName());
-            preparedStatement.executeUpdate();
-        }
-    }
-
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("major-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("Major");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
-
     }
+
+//    public void onRemoveAllProductsButtonClick() throws SQLException, ClassNotFoundException {
+//        for (Purchase purchase:list1) {
+//            Connection connection = DatabaseConnection.addConnection();
+//            String updateQuery = "";
+//            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+//            preparedStatement.setInt();
+//            preparedStatement.setString();
+//
+//        }
+//
+//    }
 }

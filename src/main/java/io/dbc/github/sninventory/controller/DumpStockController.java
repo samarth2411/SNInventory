@@ -26,15 +26,16 @@ import java.util.ResourceBundle;
 
 public class DumpStockController implements Initializable {
     @FXML
-    public TableColumn<Purchase , Integer> purchaseIdColumn;
+    public TableColumn<Purchase, Integer> purchaseIdColumn;
     @FXML
-    public TableColumn<Purchase , String> productNameColumn;
+    public TableColumn<Purchase, String> productNameColumn;
     @FXML
-    public TableColumn<Purchase , Integer> quantityColumn;
+    public TableColumn<Purchase, Integer> quantityColumn;
     @FXML
-    public TableColumn<Purchase , Date> purchaseDateColumn;
+    public TableColumn<Purchase, Date> purchaseDateColumn;
     @FXML
     public TableView<Purchase> dumpStockTable;
+    @FXML
     public Button backButton;
 
     ObservableList<Purchase> list = FXCollections.observableArrayList();
@@ -55,9 +56,9 @@ public class DumpStockController implements Initializable {
             ResultSet resultSet = preparedStatement.executeQuery(selectQuery);
             Date lastSaleDate = null;
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 String product = resultSet.getString(1);
-                int currentQuantity=resultSet.getInt(2);
+                int currentQuantity = resultSet.getInt(2);
                 String selectQuery1 = "Select PurchaseID,ProductName,PurchaseDate,Quantity from purchase where ProductName= '" + product + "'";
                 PreparedStatement preparedStatement1 = connection.prepareStatement(selectQuery1);
                 ResultSet resultSet1 = preparedStatement1.executeQuery(selectQuery1);
@@ -72,35 +73,28 @@ public class DumpStockController implements Initializable {
                     ));
 
 
-
                     FXCollections.reverse(list);
-                    String selectQuery2="SELECT DateOfSale from sales where ProductName= '" + product + "'";
-                    PreparedStatement preparedStatement2=connection.prepareStatement(selectQuery2);
-                    ResultSet resultSet2=preparedStatement2.executeQuery(selectQuery2);
+                    String selectQuery2 = "SELECT DateOfSale from sales where ProductName= '" + product + "'";
+                    PreparedStatement preparedStatement2 = connection.prepareStatement(selectQuery2);
+                    ResultSet resultSet2 = preparedStatement2.executeQuery(selectQuery2);
 
-                    while (resultSet2.next()){
-                        lastSaleDate=resultSet2.getDate(1);
+                    while (resultSet2.next()) {
+                        lastSaleDate = resultSet2.getDate(1);
                     }
 
 
-                    float daysDifference = (( new Date(Calendar.getInstance().getTime().getTime()).getTime()-lastSaleDate.getTime()) / (1000 * 60 * 60 * 24));
+                    float daysDifference = ((new Date(Calendar.getInstance().getTime().getTime()).getTime() - lastSaleDate.getTime()) / (1000 * 60 * 60 * 24));
 
-                    if(daysDifference>=365.0){
-                        Purchase purchase =list.get(0);
-                        if(currentQuantity>=purchase.getQuantityPurchased()){
-                            list1.add(purchase);
-                            currentQuantity-=purchase.getQuantityPurchased();
-                        }
-                        else {
-                        list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(),purchase.getPurchaseDate(),currentQuantity));
-                    }}
+                    if (daysDifference >= 365.0) {
+                        Purchase purchase = list.get(0);
+                        list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(), purchase.getPurchaseDate(), currentQuantity));
+                    }
 
 
-
+                }
+                dumpStockTable.setItems(list1);
             }
-            dumpStockTable.setItems(list1);
-        }}
-        catch (Exception exception) {
+        } catch (Exception exception) {
             System.err.println(exception.getMessage());
             exception.printStackTrace();
         }
@@ -109,11 +103,11 @@ public class DumpStockController implements Initializable {
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("major-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("Major");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

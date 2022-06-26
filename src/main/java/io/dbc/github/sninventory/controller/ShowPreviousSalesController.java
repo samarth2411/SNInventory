@@ -39,6 +39,7 @@ public class ShowPreviousSalesController implements Initializable {
     public TableColumn<Sale, Boolean> billpaidColumn;
     @FXML
     public TableView<Sale> showPreviousSalesTable;
+    @FXML
     public Button backButton;
 
     ObservableList<Sale> list = FXCollections.observableArrayList();
@@ -68,6 +69,7 @@ public class ShowPreviousSalesController implements Initializable {
                                 resultSet.getDouble(4),
                                 resultSet.getDate(5),
                                 resultSet.getBoolean(6)
+
                         )
                 );
             }
@@ -81,16 +83,12 @@ public class ShowPreviousSalesController implements Initializable {
 
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader =
-                new FXMLLoader(SNApplication.class.getResource("sales-view.fxml"));
-        Scene scene = new Scene(
-                fxmlLoader.load(),
-                650.0,400.0
-        );
-        stage.setTitle("Sales");
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("sales-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

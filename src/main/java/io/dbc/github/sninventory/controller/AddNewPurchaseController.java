@@ -31,14 +31,12 @@ public class AddNewPurchaseController implements Initializable {
 
     @FXML
     public ChoiceBox<String> productNameChoiceBox;
-
-    @FXML
-    public DatePicker expiryDatePicker;
     @FXML
     public Button addButton;
     @FXML
+    public DatePicker expiryDatePicker;
+    @FXML
     public Button backButton;
-
 
     ObservableList<String> list = FXCollections.observableArrayList();
     Connection connection;
@@ -49,9 +47,10 @@ public class AddNewPurchaseController implements Initializable {
 
             connection = DatabaseConnection.addConnection();
 
-            String selectQuery = "SELECT ProductName FROM product_details ";
+            String selectQuery = "SELECT ProductName FROM product_details";
             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
             ResultSet resultSet = preparedStatement.executeQuery(selectQuery);
+
 
             while (resultSet.next()) {
                 list.add(resultSet.getString(1));
@@ -72,7 +71,7 @@ public class AddNewPurchaseController implements Initializable {
         Date expiryDate = Date.valueOf(expiryDatePicker.getValue());
 
         String insertQuery =
-                "INSERT Into purchase(productname, quantity, purchaseprice, purchasedate,ExpiryDate)\n" +
+                "INSERT Into purchase(productname, quantity, purchaseprice, purchasedate , ExpiryDate)\n" +
                         " VALUES (?,?,?,?,?)";
 
         java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
@@ -87,7 +86,6 @@ public class AddNewPurchaseController implements Initializable {
 
         preparedStatement.executeUpdate();
 
-
         String updateQuery =
                 "UPDATE product_details set Quantity=Quantity+? where ProductName=?";
         preparedStatement = connection.prepareStatement(updateQuery);
@@ -98,35 +96,31 @@ public class AddNewPurchaseController implements Initializable {
 
         JOptionPane.showMessageDialog(
                 null,
-                productName + " added to the database",
-                "Query Executed Successfully",
+                productQuantity + productName + "Purchased",
+                "Successfully Purchased",
                 JOptionPane.INFORMATION_MESSAGE
         );
         Stage stage = new Stage();
+        stage = (Stage) addButton.getScene().getWindow();
+        stage.close();
 
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("showPreviousPurchase-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
 
         stage.setTitle("Previous Purchase.");
         stage.setScene(scene);
         stage.show();
-
-
-        stage = (Stage)addButton.getScene().getWindow();
-        stage.close();
 
     }
 
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("purchase-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("Purchase");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }
-
-

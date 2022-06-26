@@ -47,6 +47,9 @@ public class DatabaseConnection {
 
     public static Connection addConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/sn-inventory", "root", "");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sn-inventory", "root", "");
+        System.out.println("Connected");
+        return connection;
     }
 }
+

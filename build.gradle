@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'io.dbc.github.sninventory'
-    mainClass = 'io.dbc.github.sninventory.SNApplication'
+    mainClass = 'io.dbc.github.sninventory.HelloApplication'
 }
 
 javafx {
@@ -38,8 +38,6 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation("mysql:mysql-connector-java:8.0.29")
-
-
 }
 
 test {

@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.DebitController">
     <TableView fx:id="debitTable" prefHeight="374.0" prefWidth="650.0">
         <columns>
-            <TableColumn fx:id="purchaseIDColumn" prefWidth="80.20001524686813" text="Purchase ID" />
+            <TableColumn fx:id="purchaseIdColumn" prefWidth="80.20001524686813" text="Purchase ID" />
             <TableColumn fx:id="productNameColumn" prefWidth="118.1999740600586" text="Product Name" />
             <TableColumn fx:id="quantityColumn" prefWidth="87.39999389648438" text="Quantity" />
             <TableColumn fx:id="purchaseDateColumn" prefWidth="108.0" text="Purchase Date" />

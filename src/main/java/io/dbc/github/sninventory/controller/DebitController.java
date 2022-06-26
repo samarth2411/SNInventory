@@ -25,11 +25,9 @@ import java.util.ResourceBundle;
 
 public class DebitController implements Initializable {
     @FXML
-    public TableView<Purchase> debitTable;
-    @FXML
-    public TableColumn<Purchase, Integer> purchaseIDColumn;
-    @FXML
     public TableColumn<Purchase, String> productNameColumn;
+    @FXML
+    public TableColumn<Purchase, Integer> purchaseIdColumn;
     @FXML
     public TableColumn<Purchase, Integer> quantityColumn;
     @FXML
@@ -38,14 +36,19 @@ public class DebitController implements Initializable {
     public TableColumn<Purchase, Double> purchasePriceColumn;
     @FXML
     public TableColumn<Purchase, Double> totalAmountColumn;
+    @FXML
+    public TableView<Purchase> debitTable;
+    @FXML
     public Button backButton;
+
     ObservableList<Purchase> list = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        purchaseIDColumn.setCellValueFactory(new PropertyValueFactory<>("purchaseID"));
+
+        purchaseIdColumn.setCellValueFactory(new PropertyValueFactory<>("purchaseID"));
         productNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
-        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantityPurchased"));
         purchasePriceColumn.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
         purchaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("purchaseDate"));
         totalAmountColumn.setCellValueFactory(new PropertyValueFactory<>("totalAmount"));
@@ -62,13 +65,13 @@ public class DebitController implements Initializable {
                                 resultSet.getInt(1),
                                 resultSet.getString(2),
                                 resultSet.getInt(3),
-                                resultSet.getDate(5),
+
                                 resultSet.getDouble(4),
-                                (resultSet.getDouble(4) * resultSet.getInt(3))
+                                resultSet.getDate(5),
+                                (resultSet.getInt(3) * resultSet.getDouble(4))
                         )
                 );
             }
-
             debitTable.setItems(list);
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
@@ -76,14 +79,15 @@ public class DebitController implements Initializable {
         }
     }
 
+
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainWindow-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("SNInventory");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

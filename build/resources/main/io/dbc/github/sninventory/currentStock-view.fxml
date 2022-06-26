@@ -7,8 +7,8 @@
     <TableView fx:id="currentStockTable" layoutY="1.0" prefHeight="372.0" prefWidth="650.0">
         <columns>
             <TableColumn fx:id="productNameColumn" prefWidth="255.60000610351562" text="Product Name" />
-            <TableColumn fx:id="productQuantityColumn" prefWidth="210.80001831054688" text="Quantity " />
-            <TableColumn fx:id="productPriceColumn" minWidth="0.0" prefWidth="181.20001220703125" text="Price" />
+            <TableColumn fx:id="quantityColumn" prefWidth="210.80001831054688" text="Quantity " />
+            <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="181.20001220703125" text="Price" />
         </columns>
     </TableView>
     <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />

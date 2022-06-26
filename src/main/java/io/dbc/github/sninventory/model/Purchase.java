@@ -33,7 +33,7 @@ public class Purchase extends Product {
         this.totalAmount = totalAmount;
     }
 
-    public Purchase(int purchaseID, String productName, int quantityPurchased,Date purchaseDate,  double purchasePrice, double totalAmount) {
+    public Purchase(int purchaseID, String productName, int quantityPurchased, double purchasePrice, Date purchaseDate, double totalAmount) {
         super(productName);
         this.quantityPurchased = quantityPurchased;
         this.purchaseID = purchaseID;
@@ -42,14 +42,7 @@ public class Purchase extends Product {
         this.totalAmount = totalAmount;
     }
 
-    public Purchase(int purchaseID, String productName, Date purchaseDate, int quantityPurchased) {
-        super(productName);
-        this.purchaseDate=purchaseDate;
-        this.purchaseID = purchaseID;
-        this.quantityPurchased = quantityPurchased;
-    }
-
-    public Purchase( int purchaseID,String productName,  int quantityPurchased,Date expiryDate) {
+    public Purchase(int purchaseID, String productName, int quantityPurchased, Date expiryDate) {
         super(productName, expiryDate);
         this.purchaseID = purchaseID;
         this.quantityPurchased = quantityPurchased;
@@ -61,6 +54,12 @@ public class Purchase extends Product {
         this.quantityPurchased = quantityPurchased;
     }
 
+    public Purchase(int purchaseID, String productName, Date purchaseDate, int quantityPurchased) {
+        super(productName);
+        this.purchaseDate = purchaseDate;
+        this.purchaseID = purchaseID;
+        this.quantityPurchased = quantityPurchased;
+    }
 
     public double getTotalAmount() {
         return totalAmount;
@@ -127,3 +126,6 @@ public class Purchase extends Product {
                 '}';
     }
 }
+
+
+

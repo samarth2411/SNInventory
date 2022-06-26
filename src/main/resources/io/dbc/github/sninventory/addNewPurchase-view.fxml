@@ -4,65 +4,70 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.AddNewPurchaseController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="650.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="io.dbc.github.sninventory.controller.AddNewPurchaseController">
     <HBox layoutX="133.0" layoutY="60.0" prefHeight="34.0" prefWidth="354.0">
         <Label prefHeight="34.0" prefWidth="173.0" text="Product Name">
             <HBox.margin>
-                <Insets />
+                <Insets/>
             </HBox.margin>
             <font>
-                <Font size="23.0" />
+                <Font size="23.0"/>
             </font>
         </Label>
         <ChoiceBox fx:id="productNameChoiceBox" prefHeight="31.0" prefWidth="199.0">
             <HBox.margin>
-                <Insets left="15.0" />
+                <Insets left="15.0"/>
             </HBox.margin>
         </ChoiceBox>
     </HBox>
     <HBox layoutX="176.0" layoutY="125.0" prefHeight="35.0" prefWidth="310.0">
         <Label prefHeight="35.0" prefWidth="135.0" text="Quantity">
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
         </Label>
         <TextField fx:id="quantityTextField" prefHeight="31.0" prefWidth="204.0">
             <HBox.margin>
-                <Insets left="15.0" />
+                <Insets left="15.0"/>
             </HBox.margin>
         </TextField>
     </HBox>
     <HBox layoutX="211.0" layoutY="192.0">
         <Label text="Expiry">
             <HBox.margin>
-                <Insets right="30.0" />
+                <Insets right="30.0"/>
             </HBox.margin>
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
         </Label>
         <DatePicker fx:id="expiryDatePicker" prefHeight="31.0" prefWidth="183.0">
             <HBox.margin>
-                <Insets />
+                <Insets/>
             </HBox.margin>
         </DatePicker>
     </HBox>
     <HBox layoutX="112.0" layoutY="257.0">
         <Label prefHeight="35.0" prefWidth="177.0" text="Price of Product">
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
         </Label>
         <TextField fx:id="priceOfProductTextField" prefHeight="31.0" prefWidth="183.0">
             <HBox.margin>
-                <Insets left="15.0" />
+                <Insets left="15.0"/>
             </HBox.margin>
         </TextField>
     </HBox>
-    <Button fx:id="addButton" layoutX="274.0" layoutY="321.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="97.0" text="ADD">
-      <font>
-         <Font size="14.0" />
-      </font></Button>
-    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />
-    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0" />
+    <Button fx:id="addButton" layoutX="274.0" layoutY="321.0" mnemonicParsing="false" onAction="#onAddButtonClick"
+            prefHeight="26.0" prefWidth="97.0" text="ADD">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="371.0" mnemonicParsing="false"
+            onAction="#onBackButtonClick" prefHeight="31.0" prefWidth="72.0" text="&lt; Back"/>
+    <Separator layoutY="369.0" prefHeight="3.0" prefWidth="650.0"/>
 </AnchorPane>

@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.ShowOutstandingController">
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.ShowOutstandingController">
     <TableView fx:id="showOutstandingTable" prefHeight="372.0" prefWidth="650.0">
         <columns>
-            <TableColumn fx:id="saleIDColumn" prefWidth="80.79998475313187" text="Sale ID" />
-            <TableColumn fx:id="productNameColumn" prefWidth="148.80001831054688" text="Product Name" />
-            <TableColumn fx:id="dateOfSaleColumn" prefWidth="99.60005187988281" text="Date of Sale" />
-            <TableColumn fx:id="quantityColumn" prefWidth="87.20001220703125" text="Quantity" />
-            <TableColumn fx:id="sellingPriceColumn" prefWidth="99.0" text="Selling Price" />
-            <TableColumn fx:id="totalAmountColumn" prefWidth="136.0" text="Total Amount" />
+            <TableColumn fx:id="saleIDColumn" prefWidth="88.60000765323639" text="Sale ID" />
+            <TableColumn fx:id="productNameColumn" prefWidth="109.79998016357422" text="Product Name" />
+            <TableColumn fx:id="dateOfSaleColumn" prefWidth="100.20001220703125" text="Date of Sale" />
+            <TableColumn fx:id="quantityColumn" prefWidth="97.0" text="Quantity" />
+            <TableColumn fx:id="sellingPriceColumn" prefWidth="103.20001220703125" text="Selling Price" />
+            <TableColumn fx:id="totalAmountColumn" prefWidth="148.0" text="Total Amount" />
         </columns>
     </TableView>
-    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="31.0" prefWidth="65.0" text="&lt; Back" />
     <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0" />
-   <Button fx:id="creditedButton" onAction="#onCreditedButtonClick" layoutX="572.0" layoutY="373.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Credited" />
-   <TextField fx:id="saleIdTextFeild" layoutX="474.0" layoutY="374.0" prefHeight="26.0" prefWidth="99.0" />
-   <Label layoutX="434.0" layoutY="378.0" prefHeight="18.0" prefWidth="38.0" text="SaleID" />
+   <Button fx:id="creditedButton" layoutX="573.0" layoutY="373.0" mnemonicParsing="false" onAction="#onCreditedButtonClick" text="Credited" />
+   <Label layoutX="375.0" layoutY="374.0" prefHeight="31.0" prefWidth="48.0" text="SaleID" />
+   <TextField fx:id="saleIdTextField" layoutX="419.0" layoutY="373.0" prefHeight="31.0" prefWidth="154.0" />
 </AnchorPane>

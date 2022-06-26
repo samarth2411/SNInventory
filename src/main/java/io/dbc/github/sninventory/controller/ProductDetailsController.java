@@ -23,18 +23,22 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class ProductDetailsController implements Initializable {
+
+
     @FXML
     public Button addNewProductButton;
+
     @FXML
     public TableColumn<Product, String> productNameColumn;
     @FXML
-    public TableColumn<Product, Integer> productQuantityColumn;
+    public TableColumn<Product, Integer> quantityColumn;
     @FXML
-    public TableColumn<Product, Double> productPriceColumn;
+    public TableColumn<Product, Double> priceColumn;
     @FXML
     public TableColumn<Product, String> descriptionColumn;
     @FXML
     public TableView<Product> productDetailsTable;
+    @FXML
     public Button backButton;
 
     ObservableList<Product> list = FXCollections.observableArrayList();
@@ -43,11 +47,13 @@ public class ProductDetailsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         productNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
-        productPriceColumn.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
-        productQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         try {
+
             Connection connection = DatabaseConnection.addConnection();
 
             String selectQuery = "SELECT * FROM product_details";
@@ -55,37 +61,43 @@ public class ProductDetailsController implements Initializable {
             ResultSet resultSet = preparedStatement.executeQuery(selectQuery);
 
             while (resultSet.next()) {
-                list.add(new Product(resultSet.getString(1), resultSet.getDouble(2), resultSet.getInt(3), resultSet.getString(4)));
+                list.add(new Product(resultSet.getString(1),
+                        resultSet.getDouble(2),
+                        resultSet.getInt(3),
+                        resultSet.getString(4)));
             }
             productDetailsTable.setItems(list);
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
             exception.printStackTrace();
         }
-
     }
+
 
     public void onAddNewProductButtonClick() throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("addNewProduct-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),650,400);
+        FXMLLoader fxmlLoader =
+                new FXMLLoader(SNApplication.class.getResource("addNewProduct-view.fxml"));
+        Scene scene = new Scene(
+                fxmlLoader.load(),
+                650, 400
+        );
         stage.setTitle("Add New Product");
         stage.setScene(scene);
         stage.show();
-        stage=(Stage) addNewProductButton.getScene().getWindow();
+        stage = (Stage) addNewProductButton.getScene().getWindow();
         stage.close();
 
     }
 
-
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainWindow-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("SNInventory");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

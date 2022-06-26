@@ -33,7 +33,7 @@ set APP_HOME=%DIRNAME%..
 for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 
 @rem Add default JVM options here. You can also use JAVA_OPTS and SN_INVENTORY_OPTS to pass JVM options to this script.
-set DEFAULT_JVM_OPTS="--module-path" "APP_HOME_LIBS_PLACEHOLDER" "--module" "io.dbc.github.sninventory/io.dbc.github.sninventory.SNApplication"
+set DEFAULT_JVM_OPTS="--module-path" "APP_HOME_LIBS_PLACEHOLDER" "--module" "io.dbc.github.sninventory/io.dbc.github.sninventory.HelloApplication"
 
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
@@ -71,7 +71,7 @@ set CLASSPATH=
 set MODULE_PATH=
 
 @rem Execute SNInventory
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SN_INVENTORY_OPTS%  -classpath "%CLASSPATH%" --module-path "%MODULE_PATH%" --module io.dbc.github.sninventory/io.dbc.github.sninventory.SNApplication %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SN_INVENTORY_OPTS%  -classpath "%CLASSPATH%" --module-path "%MODULE_PATH%" --module io.dbc.github.sninventory/io.dbc.github.sninventory.HelloApplication %*
 
 :end
 @rem End local scope for the variables with windows NT shell

@@ -10,42 +10,48 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SalesController {
+
+
     @FXML
-    public Button addNewSaleButton;
+    public Button addNewSalesButton;
+
     @FXML
     public Button showPreviousSalesButton;
+    @FXML
     public Button backButton;
 
-    public void onAddNewSaleButtonClick() throws IOException {
+    public void onaddNewSalesButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("addNewSale-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),650.0,400.0);
+        Scene scene = new Scene(fxmlLoader.load(), 650, 400);
         stage.setTitle("Add New Sale");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)addNewSaleButton.getScene().getWindow();
+        stage = (Stage) addNewSalesButton.getScene().getWindow();
         stage.close();
+
     }
 
-    public void onShowPreviousSalesButtonClick() throws IOException {
+    public void onshowPreviousSalesButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("showPreviousSales-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),650.0,400.0);
+        Scene scene = new Scene(fxmlLoader.load(), 650, 400);
         stage.setTitle("Previous Sales");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)showPreviousSalesButton.getScene().getWindow();
+        stage = (Stage) showPreviousSalesButton.getScene().getWindow();
         stage.close();
+
     }
 
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainWindow-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("SNInventory");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

@@ -4,51 +4,54 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.AddNewProductController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="650.0"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="io.dbc.github.sninventory.controller.AddNewProductController">
     <HBox alignment="CENTER" layoutX="139.0" layoutY="104.0">
         <Label text="Product Name">
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
         </Label>
         <TextField fx:id="productNameTextField">
             <opaqueInsets>
-                <Insets />
+                <Insets/>
             </opaqueInsets>
             <HBox.margin>
-                <Insets left="15.0" />
+                <Insets left="15.0"/>
             </HBox.margin>
         </TextField>
     </HBox>
     <HBox alignment="CENTER" layoutX="163.0" layoutY="165.0">
         <Label text="Selling Price">
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
         </Label>
         <TextField fx:id="sellingPriceTextField">
             <opaqueInsets>
-                <Insets />
+                <Insets/>
             </opaqueInsets>
             <HBox.margin>
-                <Insets left="15.0" />
+                <Insets left="15.0"/>
             </HBox.margin>
         </TextField>
     </HBox>
     <HBox alignment="CENTER" layoutX="171.0" layoutY="227.0">
-
         <Label text="Description">
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
         </Label>
         <TextField fx:id="descriptionTextField">
             <HBox.margin>
-                <Insets left="15.0" />
+                <Insets left="15.0"/>
             </HBox.margin>
         </TextField>
     </HBox>
-    <Button fx:id="addButton" layoutX="310.0" layoutY="294.0" mnemonicParsing="false" onAction="#addNewProductClick" prefHeight="26.0" prefWidth="60.0" text="ADD" />
-    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />
-    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0" />
+    <Button fx:id="addButton" layoutX="268.0" layoutY="293.0" mnemonicParsing="false" onAction="#onAddButtonClick"
+            text="ADD"/>
+    <Separator layoutY="363.0" prefHeight="13.0" prefWidth="650.0"/>
+    <Button fx:id="backButton" layoutY="369.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="&lt; Back"
+            underline="true"/>
 </AnchorPane>

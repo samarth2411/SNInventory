@@ -26,49 +26,53 @@ public class CurrentStockController implements Initializable {
     @FXML
     public TableColumn<Product, String> productNameColumn;
     @FXML
-    public TableColumn<Product, Integer> productQuantityColumn;
+    public TableColumn<Product, Integer> quantityColumn;
     @FXML
-    public TableColumn<Product, Double> productPriceColumn;
+    public TableColumn<Product, Double> priceColumn;
     @FXML
     public TableView<Product> currentStockTable;
+    @FXML
     public Button backButton;
 
     ObservableList<Product> list = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         productNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
-        productPriceColumn.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
-        productQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
 
 
         try {
             Connection connection = DatabaseConnection.addConnection();
 
-            String selectQuery = "SELECT ProductName,ProductPrice,Quantity FROM product_details where Quantity>0";
+            String selectQuery = "SELECT productName,quantity,productPrice FROM product_details where Quantity>0";
             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
             ResultSet resultSet = preparedStatement.executeQuery(selectQuery);
 
             while (resultSet.next()) {
-                list.add(new Product(resultSet.getString(1), resultSet.getDouble(2), resultSet.getInt(3)));
+                list.add(new Product(
+                                resultSet.getString(1),
+                                resultSet.getInt(2),
+                                resultSet.getDouble(3)
+                        )
+                );
             }
             currentStockTable.setItems(list);
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
             exception.printStackTrace();
         }
-
     }
 
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainWindow-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("SNInventory");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

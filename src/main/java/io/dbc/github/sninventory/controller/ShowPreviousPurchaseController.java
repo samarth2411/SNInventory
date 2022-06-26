@@ -37,9 +37,11 @@ public class ShowPreviousPurchaseController implements Initializable {
     public TableColumn<Purchase, Date> purchaseDateColumn;
     @FXML
     public TableColumn<Purchase, Date> expiryDateColumn;
-
+    @FXML
     public TableView<Purchase> showPreviousPurchaseTable;
+    @FXML
     public Button backButton;
+
 
     ObservableList<Purchase> list = FXCollections.observableArrayList();
 
@@ -52,12 +54,12 @@ public class ShowPreviousPurchaseController implements Initializable {
         purchaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("purchaseDate"));
         expiryDateColumn.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
 
+
         try {
             Connection connection = DatabaseConnection.addConnection();
 
             String selectQuery = "SELECT * FROM purchase";
             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
-
             ResultSet resultSet = preparedStatement.executeQuery(selectQuery);
 
             while (resultSet.next()) {
@@ -68,6 +70,7 @@ public class ShowPreviousPurchaseController implements Initializable {
                                 resultSet.getDouble(4),
                                 resultSet.getDate(5),
                                 resultSet.getDate(6)
+
                         )
                 );
             }
@@ -81,12 +84,11 @@ public class ShowPreviousPurchaseController implements Initializable {
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("purchase-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("Purchase");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }
-

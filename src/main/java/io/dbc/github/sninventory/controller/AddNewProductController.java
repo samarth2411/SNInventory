@@ -27,7 +27,8 @@ public class AddNewProductController {
     @FXML
     public Button backButton;
 
-    public void addNewProductClick() throws SQLException, ClassNotFoundException, IOException {
+    public void onAddButtonClick() throws SQLException, ClassNotFoundException, IOException {
+
 
         String productName = productNameTextField.getText();
 
@@ -35,10 +36,10 @@ public class AddNewProductController {
 
         String description = descriptionTextField.getText();
 
+
         Connection connection = DatabaseConnection.addConnection();
 
-        String insertQuery =
-                "INSERT INTO PRODUCT_DETAILS VALUES (?,?,?,?);";
+        String insertQuery = "INSERT into product_details values (?,?,?,?);";
 
 
         PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
@@ -47,45 +48,35 @@ public class AddNewProductController {
         preparedStatement.setInt(3, 0);
         preparedStatement.setString(4, description);
 
-        preparedStatement.executeUpdate();
+        preparedStatement.execute();
 
+        JOptionPane.showMessageDialog(null, productName + "Product Added to the System", "Successfully Added", JOptionPane.INFORMATION_MESSAGE);
 
-        JOptionPane.showMessageDialog(
-                null,
-                productName + " added to the database",
-                "Query Executed Successfully",
-                JOptionPane.INFORMATION_MESSAGE
-        );
         Stage stage = new Stage();
-        stage = (Stage)addButton.getScene().getWindow();
+        stage = (Stage) addButton.getScene().getWindow();
         stage.close();
+
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("productDetails-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
 
         stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-
-
 
     }
 
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("productDetails-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("Product Details ");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
+
 }
-
-
-
-
-
 
 
 

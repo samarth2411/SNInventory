@@ -8,8 +8,10 @@ module io.dbc.github.sninventory {
 
     opens io.dbc.github.sninventory.model to javafx.fxml;
     exports io.dbc.github.sninventory.model;
-    opens io.dbc.github.sninventory to javafx.fxml;
-    exports io.dbc.github.sninventory;
     opens io.dbc.github.sninventory.controller to javafx.fxml;
     exports io.dbc.github.sninventory.controller;
+    opens io.dbc.github.sninventory to javafx.fxml;
+    exports io.dbc.github.sninventory;
+
+
 }

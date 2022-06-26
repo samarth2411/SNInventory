@@ -31,6 +31,15 @@ public class Sale extends Product {
         this.totalAmount = totalAmount;
     }
 
+    public Sale(int saleID, String productName, int quantitySold, double productPrice, Date dateOfSale, boolean billPaid, double totalAmount) {
+        super(productName, productPrice);
+        this.saleID = saleID;
+        this.quantitySold = quantitySold;
+        this.dateOfSale = dateOfSale;
+        this.totalAmount = totalAmount;
+        this.billPaid = billPaid;
+    }
+
     public int getSaleID() {
         return saleID;
     }
@@ -86,3 +95,4 @@ public class Sale extends Product {
     }
 
 }
+

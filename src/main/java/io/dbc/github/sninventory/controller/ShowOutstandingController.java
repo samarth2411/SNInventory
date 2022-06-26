@@ -41,7 +41,7 @@ public class ShowOutstandingController implements Initializable {
     @FXML
     public Button creditedButton;
     @FXML
-    public TextField saleIdTextFeild;
+    public TextField saleIdTextField;
 
     ObservableList<Sale> list = FXCollections.observableArrayList();
 
@@ -79,37 +79,37 @@ public class ShowOutstandingController implements Initializable {
             exception.printStackTrace();
         }
     }
+
     public void onCreditedButtonClick() throws SQLException, ClassNotFoundException, IOException {
-        if(!saleIdTextFeild.getText().isBlank()){
-            int enteredSaleID = Integer.parseInt(saleIdTextFeild.getText());
+        if (!saleIdTextField.getText().isBlank()) {
+            int enterSaleId = Integer.parseInt(saleIdTextField.getText());
             Connection connection = DatabaseConnection.addConnection();
-            String updateQuery = "update sales set BillPaid=true where SaleID=?";
+            String updateQuery = "UPDATE sales set BillPaid=true WHERE SalesID=?";
             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-            preparedStatement.setInt(1, enteredSaleID);
+            preparedStatement.setInt(1, enterSaleId);
             preparedStatement.executeUpdate();
+        } else {
+            System.err.println("Text Field Empty");
         }
-        else {
-            System.err.println("text feild empty");
-        }
-        Stage stage=new Stage();
-        stage = (Stage)creditedButton.getScene().getWindow();
+        Stage stage = new Stage();
+        stage = (Stage) creditedButton.getScene().getWindow();
         stage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("showOutstanding-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),650.0,400.0);
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
         stage.setTitle("Outstanding");
         stage.setScene(scene);
         stage.show();
-
     }
+
 
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("credit-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("Credit");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

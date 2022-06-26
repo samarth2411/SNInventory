@@ -11,17 +11,17 @@
             <VBox.margin>
                 <Insets bottom="15.0" top="15.0" />
             </VBox.margin>
-         <font>
-            <Font size="17.0" />
-         </font>
+            <font>
+                <Font size="17.0" />
+            </font>
         </Button>
         <Button fx:id="outstandingButton" alignment="CENTER" mnemonicParsing="false" onAction="#onOutstandingButtonClick" prefHeight="35.0" prefWidth="155.0" text="Outstanding">
             <VBox.margin>
                 <Insets bottom="15.0" top="15.0" />
             </VBox.margin>
-         <font>
-            <Font size="16.0" />
-         </font>
+            <font>
+                <Font size="16.0" />
+            </font>
         </Button>
     </VBox>
     <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />

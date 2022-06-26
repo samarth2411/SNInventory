@@ -38,6 +38,7 @@ public class ShowCreditsController implements Initializable {
     public TableColumn<Sale, Double> totalAmountColumn;
     @FXML
     public TableView<Sale> showCreditTable;
+    @FXML
     public Button backButton;
 
     ObservableList<Sale> list = FXCollections.observableArrayList();
@@ -80,11 +81,11 @@ public class ShowCreditsController implements Initializable {
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("credit-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("Credit");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

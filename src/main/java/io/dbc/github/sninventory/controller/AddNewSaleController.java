@@ -38,7 +38,6 @@ public class AddNewSaleController implements Initializable {
 
     ObservableList<String> list = FXCollections.observableArrayList();
     Connection connection;
-    Stage stage=new Stage();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,7 +45,7 @@ public class AddNewSaleController implements Initializable {
 
             connection = DatabaseConnection.addConnection();
 
-            String selectQuery = "SELECT ProductName FROM product_details where Quantity>0";
+            String selectQuery = "SELECT ProductName FROM product_details where product_details.quantity>0";
             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
             ResultSet resultSet = preparedStatement.executeQuery(selectQuery);
 
@@ -68,14 +67,14 @@ public class AddNewSaleController implements Initializable {
         double purchasePrice = Double.parseDouble(priceOfProductTextField.getText());
         boolean billPaid = billPaidChoiceBox.getSelectionModel().getSelectedItem();
 
-        String selectQuery1 = "SELECT Quantity From product_details where ProductName='" + productName + "' ";
+        String selectQuery1 = "SELECT Quantity From product_details where ProductName= '" + productName + "'";
         PreparedStatement preparedStatement1 = connection.prepareStatement(selectQuery1);
         ResultSet resultSet1 = preparedStatement1.executeQuery(selectQuery1);
         resultSet1.next();
         int currentQuantity = resultSet1.getInt(1);
         if (currentQuantity >= productQuantity) {
             String insertQuery =
-                    "INSERT Into sales(productname, quantitysold, sellingprice, dateofsale, billpaid)\n" +
+                    "INSERT Into sales(Productname, QuantitySold, SellingPrice, DateofSale, BillPaid)\n" +
                             " VALUES (?,?,?,?,?)";
 
 
@@ -104,45 +103,43 @@ public class AddNewSaleController implements Initializable {
                     "Query Executed Successfully",
                     JOptionPane.INFORMATION_MESSAGE
             );
-
-            stage = (Stage)addButton.getScene().getWindow();
+            Stage stage = new Stage();
+            stage = (Stage) addButton.getScene().getWindow();
             stage.close();
 
             FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("showPreviousSales-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
+            Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
 
             stage.setTitle("Previous Sales.");
             stage.setScene(scene);
+            stage.show();
+
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("LESS PRODUCT AVAILABLE");
             alert.setContentText("The available quantity of" + productName + " is " + currentQuantity);
             alert.showAndWait();
-            stage = (Stage)addButton.getScene().getWindow();
+            Stage stage = new Stage();
+            stage = (Stage) addButton.getScene().getWindow();
             stage.close();
-
             FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("addNewSale-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
+            Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
 
             stage.setTitle(" Add New Sale.");
             stage.setScene(scene);
-
+            stage.show();
         }
-        stage.show();
 
     }
 
     public void onBackButtonClick() throws IOException {
-        FXMLLoader fxmlLoader =
-                new FXMLLoader(SNApplication.class.getResource("sales-view.fxml"));
-        Scene scene = new Scene(
-                fxmlLoader.load(),
-                650.0,400.0
-        );
-        stage.setTitle("Sales");
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("sales-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }

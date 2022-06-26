@@ -7,47 +7,15 @@ public class Product {
 
     private String productName;
 
-    private double productPrice;
-
     private Date expiryDate;
+
+    private double productPrice;
 
     private String description;
 
     private int quantity;
 
-    private int   daysLeftInExpiry;
-
-    public Product(String productName, double productPrice, int quantity, String description) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.quantity = quantity;
-        this.description = description;
-    }
-
-    public Product(String productName, double productPrice, Date expiryDate, String description) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.expiryDate = expiryDate;
-        this.description = description;
-    }
-
-    public Product(String productName, double productPrice, int quantity) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.quantity = quantity;
-    }
-
-    public Product(String productName, Date expiryDate) {
-        this.productName = productName;
-        this.expiryDate = expiryDate;
-
-    }
-
-    public Product(String productName, Date expiryDate, int  daysLeftInExpiry) {
-        this.productName = productName;
-        this.expiryDate = expiryDate;
-        this.daysLeftInExpiry = daysLeftInExpiry;
-    }
+    private int daysLeftInExpiry;
 
     public Product(String productName) {
         this.productName = productName;
@@ -58,11 +26,49 @@ public class Product {
         this.productPrice = productPrice;
     }
 
+    public Product(String productName, Date expiryDate) {
+        this.productName = productName;
+        this.expiryDate = expiryDate;
+    }
+
+    public Product(String productName, double productPrice, int quantity, String description) {
+        this.productName = productName;
+        this.quantity = quantity;
+        this.productPrice = productPrice;
+        this.description = description;
+
+    }
+
+    public Product(String productName, int quantity, double productPrice) {
+        this.productName = productName;
+        this.quantity = quantity;
+        this.productPrice = productPrice;
+    }
+
+    public Product(String productName, double productPrice, String description) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.description = description;
+    }
+
+    public Product(String productName, Date expiryDate, double productPrice, String description) {
+        this.productName = productName;
+        this.expiryDate = expiryDate;
+        this.productPrice = productPrice;
+        this.description = description;
+    }
+
+    public Product(String productName, Date expiryDate, int daysLeftInExpiry) {
+        this.productName = productName;
+        this.expiryDate = expiryDate;
+        this.daysLeftInExpiry = daysLeftInExpiry;
+    }
+
     public int getDaysLeftInExpiry() {
         return daysLeftInExpiry;
     }
 
-    public void setDaysLeftInExpiry(int  daysLeftInExpiry) {
+    public void setDaysLeftInExpiry(int daysLeftInExpiry) {
         this.daysLeftInExpiry = daysLeftInExpiry;
     }
 
@@ -82,14 +88,6 @@ public class Product {
         this.productName = productName;
     }
 
-    public double getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
-    }
-
     public Date getExpiryDate() {
         return expiryDate;
     }
@@ -98,29 +96,37 @@ public class Product {
         this.expiryDate = expiryDate;
     }
 
+    public double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        description = description;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Product)) return false;
         Product product = (Product) o;
-        return Double.compare(product.productPrice, productPrice) == 0 && Objects.equals(productName, product.productName) && Objects.equals(expiryDate, product.expiryDate);
+        return Double.compare(product.getProductPrice(), getProductPrice()) == 0 && getQuantity() == product.getQuantity() && Objects.equals(getProductName(), product.getProductName()) && Objects.equals(getExpiryDate(), product.getExpiryDate()) && Objects.equals(getDescription(), product.getDescription());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productName, productPrice, expiryDate);
+        return Objects.hash(getProductName(), getExpiryDate(), getProductPrice(), getDescription(), getQuantity());
     }
 
     @Override
     public String toString() {
-        return "product{" + "productName='" + productName + '\'' + ", productPrice=" + productPrice + '}';
+        return "Product{" + "productName='" + productName + '\'' + ", productPrice=" + productPrice + ", Description='" + description + '\'' + ", quantity=" + quantity + '}';
     }
 }

@@ -37,6 +37,7 @@ public class NearExpiryProductsController implements Initializable {
     public TableColumn<Purchase, Integer> purchaseIdColumn;
     @FXML
     public TableView<Purchase> nearExpiryProductTable;
+    @FXML
     public Button backButton;
 
     ObservableList<Purchase> list = FXCollections.observableArrayList();
@@ -81,7 +82,7 @@ public class NearExpiryProductsController implements Initializable {
                 while (currentQuantity > 0) {
                     for (Purchase purchase : list) {
                         long daysLeft = (purchase.getExpiryDate().getTime() - new Date(Calendar.getInstance().getTime().getTime()).getTime());
-                        float daysLeftInExpiry = (daysLeft / (1000 * 60 * 60 * 24));
+                        int daysLeftInExpiry = (int) (daysLeft / (1000 * 60 * 60 * 24));
                         if (!purchase.getExpiryDate().before(new Date(Calendar.getInstance().getTime().getTime()))) {
 
 
@@ -90,11 +91,11 @@ public class NearExpiryProductsController implements Initializable {
                             } else {
                                 if (currentQuantity > purchase.getQuantityPurchased()) {
                                     list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(),
-                                            purchase.getQuantityPurchased(), purchase.getExpiryDate(), (int)daysLeftInExpiry));
+                                            purchase.getQuantityPurchased(), purchase.getExpiryDate(), daysLeftInExpiry));
                                     currentQuantity -= purchase.getQuantityPurchased();
                                 } else {
                                     list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(),
-                                            currentQuantity, purchase.getExpiryDate(),(int) daysLeftInExpiry));
+                                            currentQuantity, purchase.getExpiryDate(), daysLeftInExpiry));
                                     currentQuantity = 0;
                                     break;
                                 }
@@ -114,11 +115,11 @@ public class NearExpiryProductsController implements Initializable {
     public void onBackButtonClick() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("major-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0,400.0);
-        stage.setTitle("Major");
+        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
+        stage.setTitle("Product Details");
         stage.setScene(scene);
         stage.show();
-        stage = (Stage)backButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         stage.close();
     }
 }
