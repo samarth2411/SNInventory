@@ -1,13 +1,11 @@
 package io.dbc.github.sninventory.controller;
 
-import io.dbc.github.sninventory.SNApplication;
 import io.dbc.github.sninventory.database.DatabaseConnection;
+import io.dbc.github.sninventory.service.FXMLloader;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -28,14 +26,10 @@ public class AddNewProductController {
     public Button backButton;
 
     public void onAddButtonClick() throws SQLException, ClassNotFoundException, IOException {
-
-
+        try{
         String productName = productNameTextField.getText();
-
         double productPrice = Double.parseDouble(sellingPriceTextField.getText());
-
         String description = descriptionTextField.getText();
-
 
         Connection connection = DatabaseConnection.addConnection();
 
@@ -52,28 +46,27 @@ public class AddNewProductController {
 
         JOptionPane.showMessageDialog(null, productName + "Product Added to the System", "Successfully Added", JOptionPane.INFORMATION_MESSAGE);
 
-        Stage stage = new Stage();
-        stage = (Stage) addButton.getScene().getWindow();
-        stage.close();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("productDetails-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-
-        stage.setTitle("Product Details");
-        stage.setScene(scene);
-        stage.show();
-
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.close(addButton);
+        fxmLloader.load("productDetails-view.fxml","Product Details");
+        }  catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WRONG INPUT");
+            alert.setContentText("Please give the valid inputs");
+            alert.showAndWait();
+        } catch (NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("EMPTY FIELDS");
+            alert.setContentText("Please Fill All The Fields");
+            alert.showAndWait();
+        }
     }
 
     public void onBackButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("productDetails-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Product Details");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
+        
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("productDetails-view.fxml","Product Details");
+        fxmLloader.close(backButton);
     }
 
 }

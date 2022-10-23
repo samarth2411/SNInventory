@@ -1,16 +1,13 @@
 package io.dbc.github.sninventory.controller;
 
-import io.dbc.github.sninventory.SNApplication;
+import io.dbc.github.sninventory.service.FXMLloader;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
-public class MainWindowController {//extends Application {
+public class MainWindowController {
 
     @FXML
     public Button currentStockButton;
@@ -31,94 +28,53 @@ public class MainWindowController {//extends Application {
 
 
     public void onCurrentStockButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("currentStock-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Current Stock");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) currentStockButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("currentStock-view.fxml","Current Stock");
+        fxmLloader.close(currentStockButton);
 
     }
 
     public void onProductDetailsButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("productDetails-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-
-        stage.setTitle("Product Details");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) productDetailsButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("productDetails-view.fxml","Product Details");
+        fxmLloader.close(productDetailsButton);
 
     }
 
     public void onPurchaseButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("purchase-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Purchase");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) purchaseButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("purchase-view.fxml","Purchase");
+        fxmLloader.close(purchaseButton);
     }
 
     public void onSalesButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("sales-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Sales");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) salesButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("sales-view.fxml","Sales");
+        fxmLloader.close(salesButton);
     }
 
     public void onCreditButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("credit-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Credit");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) creditButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("credit-view.fxml","Credit");
+        fxmLloader.close(creditButton);
     }
 
     public void onDebitButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("debit-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Debit");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) debitButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("debit-view.fxml","Debit");
+        fxmLloader.close(debitButton);
     }
 
     public void onProfitButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("profit-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Profit");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) profitButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("profit-view.fxml","Profit");
+        fxmLloader.close(profitButton);
     }
 
     public void onMajorButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("major-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Major");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) majorButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("major-view.fxml","Major");
+        fxmLloader.close(majorButton);
     }
 
 

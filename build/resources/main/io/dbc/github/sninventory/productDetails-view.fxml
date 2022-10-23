@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.ProductDetailsController">
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="650.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            fx:controller="io.dbc.github.sninventory.controller.ProductDetailsController">
     <TableView fx:id="productDetailsTable" layoutX="2.0" layoutY="1.0" prefHeight="371.0" prefWidth="650.0">
         <columns>
-            <TableColumn fx:id="productNameColumn" prefWidth="162.0" text="Product Name" />
-            <TableColumn fx:id="quantityColumn" minWidth="0.0" prefWidth="125.20001220703125" text="Quantity" />
-            <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="155.20001220703125" text="Price" />
-            <TableColumn fx:id="descriptionColumn" prefWidth="205.5999816894531" sortType="DESCENDING" text="Description" />
+            <TableColumn fx:id="productNameColumn" prefWidth="162.0" text="Product Name"/>
+            <TableColumn fx:id="quantityColumn" minWidth="0.0" prefWidth="125.20001220703125" text="Quantity"/>
+            <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="155.20001220703125" text="Price"/>
+            <TableColumn fx:id="descriptionColumn" prefWidth="205.5999816894531" sortType="DESCENDING"
+                         text="Description"/>
         </columns>
     </TableView>
 
-    <Button fx:id="addNewProductButton" layoutX="513.0" layoutY="374.0" mnemonicParsing="false" onAction="#onAddNewProductButtonClick" prefHeight="26.0" prefWidth="138.0" text="Add New Product" />
-    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />
-    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0" />
+    <Button fx:id="addNewProductButton" layoutX="513.0" layoutY="374.0" mnemonicParsing="false"
+            onAction="#onAddNewProductButtonClick" prefHeight="26.0" prefWidth="138.0" text="Add New Product"/>
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false"
+            onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back"/>
+    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0"/>
 </AnchorPane>

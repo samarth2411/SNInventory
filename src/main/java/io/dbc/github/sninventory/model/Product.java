@@ -17,6 +17,8 @@ public class Product {
 
     private int daysLeftInExpiry;
 
+    private int minQuantity;
+
     public Product(String productName) {
         this.productName = productName;
     }

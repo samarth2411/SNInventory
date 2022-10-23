@@ -1,20 +1,16 @@
 package io.dbc.github.sninventory.controller;
 
-
-import io.dbc.github.sninventory.SNApplication;
 import io.dbc.github.sninventory.database.DatabaseConnection;
 import io.dbc.github.sninventory.model.Purchase;
+import io.dbc.github.sninventory.service.FXMLloader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,13 +35,12 @@ public class ExpiredProductsController implements Initializable {
     public TableView<Purchase> expiredProductTable;
     @FXML
     public Button backButton;
-    @FXML
-    public Button removeAllProductsButton;
+
 
 
     ObservableList<Purchase> list = FXCollections.observableArrayList();
-
     ObservableList<Purchase> list1 = FXCollections.observableArrayList();
+    ObservableList<Purchase> list2 = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,8 +52,8 @@ public class ExpiredProductsController implements Initializable {
             Connection connection = DatabaseConnection.addConnection();
 
             String selectQuery = "SELECT ProductName,Quantity FROM product_details";
-            PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
-            ResultSet resultSet = preparedStatement.executeQuery(selectQuery);
+            PreparedStatement preparedStatement3 = connection.prepareStatement(selectQuery);
+            ResultSet resultSet = preparedStatement3.executeQuery(selectQuery);
 
             while (resultSet.next()) {
                 String product = resultSet.getString(1);
@@ -86,47 +81,57 @@ public class ExpiredProductsController implements Initializable {
                             if (currentQuantity > purchase.getQuantityPurchased()) {
                                 list1.add(purchase);
                                 currentQuantity -= purchase.getQuantityPurchased();
-                            } else {
+                            } else if (currentQuantity > 0 && currentQuantity < purchase.getQuantityPurchased()) {
                                 list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(),
                                         currentQuantity, purchase.getExpiryDate()));
                                 currentQuantity = 0;
-
-
                                 break;
                             }
                         }
                     }
-
-                    expiredProductTable.setItems(list1);
                 }
+
             }
+                    for(Purchase purchase1:list1){
+                  String insertQuery = "INSERT into expired_products values (?,?,?,?);";
+
+                    PreparedStatement preparedStatement2 = connection.prepareStatement(insertQuery);
+                    preparedStatement2.setInt(1, purchase1.getPurchaseID());
+                    preparedStatement2.setString(2, purchase1.getProductName());
+                    preparedStatement2.setInt(3, purchase1.getQuantityPurchased());
+                    preparedStatement2.setDate(4,purchase1.getExpiryDate());
+
+                    preparedStatement2.execute();
+
+                        String updateQuery =
+                                "UPDATE product_details set Quantity=product_details.Quantity-? where ProductName=?";
+                        preparedStatement3 = connection.prepareStatement(updateQuery);
+                        preparedStatement3.setInt(1, purchase1.getQuantityPurchased());
+                        preparedStatement3.setString(2, purchase1.getProductName());
+                        preparedStatement3.executeUpdate();
+                }
+                    String selectQuery2 = "SELECT * FROM expired_products";
+                    PreparedStatement preparedStatement4 = connection.prepareStatement(selectQuery2);
+                    ResultSet finalResultSet = preparedStatement4.executeQuery(selectQuery2);
+
+                    while (finalResultSet.next()) {
+                        list2.add(new Purchase(finalResultSet.getInt(1),
+                                finalResultSet.getString(2),
+                                finalResultSet.getInt(3),
+                                finalResultSet.getDate(4)
+                        ));
+                    }
+                    expiredProductTable.setItems(list2);
+
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
             exception.printStackTrace();
-
         }
     }
 
     public void onBackButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("major-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Product Details");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("major-view.fxml","Product Details");
+        fxmLloader.close(backButton);
     }
-
-//    public void onRemoveAllProductsButtonClick() throws SQLException, ClassNotFoundException {
-//        for (Purchase purchase:list1) {
-//            Connection connection = DatabaseConnection.addConnection();
-//            String updateQuery = "";
-//            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-//            preparedStatement.setInt();
-//            preparedStatement.setString();
-//
-//        }
-//
-//    }
 }

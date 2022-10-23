@@ -1,19 +1,16 @@
 package io.dbc.github.sninventory.controller;
 
-import io.dbc.github.sninventory.SNApplication;
 import io.dbc.github.sninventory.database.DatabaseConnection;
 import io.dbc.github.sninventory.model.Purchase;
+import io.dbc.github.sninventory.service.FXMLloader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -82,13 +79,9 @@ public class ShowPreviousPurchaseController implements Initializable {
     }
 
     public void onBackButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("purchase-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Product Details");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
+
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("purchase-view.fxml","Purchase");
+        fxmLloader.close(backButton);
     }
 }

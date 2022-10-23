@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<AnchorPane prefHeight="287.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.MajorController">
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="287.0" prefWidth="486.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            fx:controller="io.dbc.github.sninventory.controller.MajorController">
     <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
-        <Button fx:id="expiredProductButton" alignment="CENTER" mnemonicParsing="false" onAction="#onExpiredProductButtonClick" prefHeight="33.0" prefWidth="142.0" text="Expired Products">
+        <Button fx:id="expiredProductButton" alignment="CENTER" mnemonicParsing="false"
+                onAction="#onExpiredProductButtonClick" prefHeight="33.0" prefWidth="142.0" text="Expired Products">
             <VBox.margin>
-                <Insets bottom="15.0" top="15.0" />
+                <Insets bottom="15.0" top="15.0"/>
             </VBox.margin>
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
         </Button>
-        <Button fx:id="nearExpiryProductButton" alignment="CENTER" mnemonicParsing="false" onAction="#onNearExpiryProductButtonClick" prefHeight="33.0" prefWidth="143.0" text="Near Expiry Products">
+        <Button fx:id="nearExpiryProductButton" alignment="CENTER" mnemonicParsing="false"
+                onAction="#onNearExpiryProductButtonClick" prefHeight="33.0" prefWidth="143.0"
+                text="Near Expiry Products">
             <VBox.margin>
-                <Insets bottom="15.0" top="15.0" />
+                <Insets bottom="15.0" top="15.0"/>
             </VBox.margin>
             <font>
-                <Font size="13.0" />
+                <Font size="13.0"/>
             </font>
         </Button>
-        <Button fx:id="dumpStockButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDumpStockButtonClick" prefHeight="34.0" prefWidth="144.0" text="Dump Stock">
+        <Button fx:id="dumpStockButton" alignment="CENTER" mnemonicParsing="false" onAction="#onDumpStockButtonClick"
+                prefHeight="34.0" prefWidth="144.0" text="Dump Stock">
             <VBox.margin>
-                <Insets bottom="15.0" top="15.0" />
+                <Insets bottom="15.0" top="15.0"/>
             </VBox.margin>
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
         </Button>
     </VBox>
-    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back" />
-    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0" />
+    <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutY="373.0" mnemonicParsing="false"
+            onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="53.0" text="&lt; Back"/>
+    <Separator layoutY="369.0" prefHeight="8.0" prefWidth="650.0"/>
 </AnchorPane>

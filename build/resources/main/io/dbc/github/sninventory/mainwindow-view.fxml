@@ -1,40 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.dbc.github.sninventory.controller.MainWindowController">
-    <Button fx:id="currentStockButton" layoutX="172.0" layoutY="97.0" mnemonicParsing="false" onAction="#onCurrentStockButtonClick" prefHeight="36.0" prefWidth="118.0" text="Current Stock ">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="650.0"
+            xmlns="http://javafx.com/javafx/11.0.2"
+            fx:controller="io.dbc.github.sninventory.controller.MainWindowController">
+    <Button fx:id="currentStockButton" layoutX="172.0" layoutY="97.0" mnemonicParsing="false"
+            onAction="#onCurrentStockButtonClick" prefHeight="36.0" prefWidth="118.0" text="Current Stock ">
         <font>
-            <Font size="14.0" />
-        </font></Button>
-    <Button fx:id="productDetailsButton" layoutX="361.0" layoutY="97.0" mnemonicParsing="false" onAction="#onProductDetailsButtonClick" prefHeight="36.0" prefWidth="118.0" text="Product Details">
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="productDetailsButton" layoutX="361.0" layoutY="97.0" mnemonicParsing="false"
+            onAction="#onProductDetailsButtonClick" prefHeight="36.0" prefWidth="118.0" text="Product Details">
         <font>
-            <Font size="14.0" />
-        </font></Button>
-    <Button fx:id="purchaseButton" layoutX="172.0" layoutY="164.0" mnemonicParsing="false" onAction="#onPurchaseButtonClick" prefHeight="36.0" prefWidth="118.0" text="Purchase">
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="purchaseButton" layoutX="172.0" layoutY="164.0" mnemonicParsing="false"
+            onAction="#onPurchaseButtonClick" prefHeight="36.0" prefWidth="118.0" text="Purchase">
         <font>
-            <Font size="14.0" />
-        </font></Button>
-    <Button fx:id="salesButton" layoutX="361.0" layoutY="164.0" mnemonicParsing="false" onAction="#onSalesButtonClick" prefHeight="36.0" prefWidth="118.0" text="Sales">
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="salesButton" layoutX="361.0" layoutY="164.0" mnemonicParsing="false" onAction="#onSalesButtonClick"
+            prefHeight="36.0" prefWidth="118.0" text="Sales">
         <font>
-            <Font size="14.0" />
-        </font></Button>
-    <Button fx:id="creditButton" layoutX="172.0" layoutY="232.0" mnemonicParsing="false" onAction="#onCreditButtonClick" prefHeight="36.0" prefWidth="118.0" text="Credit">
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="creditButton" layoutX="172.0" layoutY="232.0" mnemonicParsing="false" onAction="#onCreditButtonClick"
+            prefHeight="36.0" prefWidth="118.0" text="Credit">
         <font>
-            <Font size="14.0" />
-        </font></Button>
-    <Button fx:id="debitButton" layoutX="361.0" layoutY="232.0" mnemonicParsing="false" onAction="#onDebitButtonClick" prefHeight="36.0" prefWidth="118.0" text="Debit">
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="debitButton" layoutX="361.0" layoutY="232.0" mnemonicParsing="false" onAction="#onDebitButtonClick"
+            prefHeight="36.0" prefWidth="118.0" text="Debit">
         <font>
-            <Font size="14.0" />
-        </font></Button>
-    <Button fx:id="profitButton" layoutX="172.0" layoutY="297.0" mnemonicParsing="false" onAction="#onProfitButtonClick" prefHeight="36.0" prefWidth="118.0" text="Profit">
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="profitButton" layoutX="172.0" layoutY="297.0" mnemonicParsing="false" onAction="#onProfitButtonClick"
+            prefHeight="36.0" prefWidth="118.0" text="Profit">
         <font>
-            <Font size="14.0" />
-        </font></Button>
-    <Button fx:id="majorButton" layoutX="361.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMajorButtonClick" prefHeight="36.0" prefWidth="118.0" text="Major">
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="majorButton" layoutX="361.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMajorButtonClick"
+            prefHeight="36.0" prefWidth="118.0" text="Major">
         <font>
-            <Font size="14.0" />
-        </font></Button>
+            <Font size="14.0"/>
+        </font>
+    </Button>
 </AnchorPane>

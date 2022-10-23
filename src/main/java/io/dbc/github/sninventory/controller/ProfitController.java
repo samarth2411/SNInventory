@@ -1,14 +1,16 @@
 package io.dbc.github.sninventory.controller;
 
 import io.dbc.github.sninventory.database.DatabaseConnection;
+import io.dbc.github.sninventory.service.FXMLloader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,19 +18,17 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class ProfitController implements Initializable {
-    @FXML
-    public AnchorPane profitAnchorPane;
+
     @FXML
     public LineChart profitLineChart;
     @FXML
-    public TextField profitTextField;
-    @FXML
-    public AnchorPane lossAnchorPane;
-    @FXML
     public LineChart lossLineChart;
     @FXML
+    public TextField profitTextField;
+    @FXML
     public TextField lossTextField;
-
+    @FXML
+    Button backButton;
 
     ObservableList<Double> list1 = FXCollections.observableArrayList();
     ObservableList<Double> list2 = FXCollections.observableArrayList();
@@ -60,18 +60,18 @@ public class ProfitController implements Initializable {
             }
             double debit = 0;
             double credit = 0;
-            for (int i = 1; i < list1.size(); i++) {
+            for (int i = 0; i < list1.size(); i++) {
                 debit = debit + list1.get(i);
             }
 
-            for (int i = 1; i < list2.size(); i++) {
+            for (int i = 0; i < list2.size(); i++) {
                 credit = credit + list2.get(i);
             }
             if (credit > debit) {
-                profitTextField.setTranslateX(credit - debit);          // profit ki text field mei show ho jae credit - debit
+                profitTextField.setText(String.valueOf(credit-debit));          // profit ki text field mei show ho jae credit - debit
             }
-            if (credit < debit) {
-                lossTextField.setTranslateX(debit - credit);             // loss ki text field mei show ho jae debit - credit
+            else if (credit < debit) {
+                lossTextField.setText(String.valueOf(debit - credit));             // loss ki text field mei show ho jae debit - credit
             }
 
 
@@ -80,5 +80,12 @@ public class ProfitController implements Initializable {
             exception.printStackTrace();
         }
 
+    }
+
+    public void onBackButtonClick() throws IOException {
+        FXMLloader fxmLloader=new FXMLloader();
+        fxmLloader.load("mainWindow-view.fxml","Product Details");
+
+        fxmLloader.close(backButton);
     }
 }

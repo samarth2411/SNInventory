@@ -1,19 +1,16 @@
 package io.dbc.github.sninventory.controller;
 
-import io.dbc.github.sninventory.SNApplication;
 import io.dbc.github.sninventory.database.DatabaseConnection;
 import io.dbc.github.sninventory.model.Purchase;
+import io.dbc.github.sninventory.service.FXMLloader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -83,14 +80,11 @@ public class DumpStockController implements Initializable {
                     }
 
 
-                    float daysDifference = ((new Date(Calendar.getInstance().getTime().getTime()).getTime() - lastSaleDate.getTime()) / (1000 * 60 * 60 * 24));
-
-                    if (daysDifference >= 365.0) {
+                    if ((lastSaleDate == null) ||
+                            ((new Date(Calendar.getInstance().getTime().getTime()).getTime() - lastSaleDate.getTime()) / (1000 * 60 * 60 * 24)) >= 365.0) {
                         Purchase purchase = list.get(0);
                         list1.add(new Purchase(purchase.getPurchaseID(), purchase.getProductName(), purchase.getPurchaseDate(), currentQuantity));
                     }
-
-
                 }
                 dumpStockTable.setItems(list1);
             }
@@ -101,13 +95,9 @@ public class DumpStockController implements Initializable {
     }
 
     public void onBackButtonClick() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("major-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-        stage.setTitle("Product Details");
-        stage.setScene(scene);
-        stage.show();
-        stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
+
+        FXMLloader fxmLloader = new FXMLloader();
+        fxmLloader.load("major-view.fxml", "Major");
+        fxmLloader.close(backButton);
     }
 }

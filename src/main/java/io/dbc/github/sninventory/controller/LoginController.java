@@ -1,14 +1,11 @@
 package io.dbc.github.sninventory.controller;
 
-import io.dbc.github.sninventory.SNApplication;
+import io.dbc.github.sninventory.service.FXMLloader;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -38,15 +35,9 @@ public class LoginController {
         } else if ("samarth".equals(username) && "password123".equals(password)) {
 
 
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(SNApplication.class.getResource("mainWindow-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 650.0, 400.0);
-            stage.setTitle("Hello!");
-            stage.setScene(scene);
-            stage.show();
-
-            stage = (Stage) loginButton.getScene().getWindow();
-            stage.close();
+            FXMLloader fxmLloader=new FXMLloader();
+            fxmLloader.load("mainWindow-view.fxml","Stock Management System");
+            fxmLloader.close(loginButton);
 
 
         } else {
